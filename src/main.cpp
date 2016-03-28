@@ -18,7 +18,16 @@ int main()
 {
 	try
 	{
-		
+		{
+			 //HTTP-server at port 8080 using 4 threads
+		    HttpServer server(port,threads);
+		    //serverResource(server);
+		    serverRedisResource(server,redisHost,redisPort,redisPassword,url);
+		    thread server_thread([&server](){
+		        //Start server
+		        server.start();
+		    });
+		}
 		{
 			boost::timer::cpu_timer pass;
 			pass.start();
