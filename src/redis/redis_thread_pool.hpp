@@ -250,12 +250,11 @@ void processCommandPool()
     // use defined ThreadedPool here
     ThreadPoolCluster::ptr_t cluster_p;
     // and here as template parameter
-	cout<<__LINE__<<":"<<redisHost<<endl;
-	cout<<__LINE__<<":"<<redisPort<<endl;
-    cluster_p = HiredisCommand<ThreadPoolCluster>::createCluster( redisHost.c_str(),boost::lexical_cast<int>(redisPort) );
+	
+    cluster_p = HiredisCommand<ThreadPoolCluster>::createCluster( get_config->m_redis_host.c_str(),boost::lexical_cast<int>(get_config->m_redis_port) );
     
-    std::thread thr[threadsNum];
-    for( int i = 0; i < threadsNum; ++i )
+    std::thread thr[get_config->m_threads];
+    for( int i = 0; i < get_config->m_threads; ++i )
     {
         thr[i] = std::thread( commandThread, cluster_p );
     }
