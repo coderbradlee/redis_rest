@@ -15,7 +15,6 @@
 #include <boost/property_tree/json_parser.hpp>
 #include <fstream>
 #include "redis_errorcode.hpp"
-#include "renesolalog.h"
 #include "hirediscommand.h"
 using namespace RedisCluster;
 using namespace redispp;
