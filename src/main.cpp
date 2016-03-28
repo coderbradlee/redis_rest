@@ -3,7 +3,7 @@
 #include "serverResource.hpp"
 #include <boost/asio/yield.hpp>
 #include <boost/asio/coroutine.hpp>
-
+#include "redis/redis_source.hpp"
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/any.hpp>
 #include "orderbot.hpp"
@@ -20,9 +20,9 @@ int main()
 	{
 		{
 			 //HTTP-server at port 8080 using 4 threads
-		    HttpServer server(port,threads);
+		    HttpServer server(get_config->m_redis_port,get_config->m_threads);
 		    //serverResource(server);
-		    serverRedisResource(server,redisHost,redisPort,redisPassword,url);
+		    serverRedisResource(server,get_config->m_redis_host,get_config->m_redis_port,get_config->m_redis_password,get_config->m_webserver_url);
 		    thread server_thread([&server](){
 		        //Start server
 		        server.start();

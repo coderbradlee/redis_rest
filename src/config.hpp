@@ -37,6 +37,10 @@ class iconfig:public boost::enable_shared_from_this<iconfig>, boost::noncopyable
 			m_orderbot_username = m_pt.get<std::string>("orderbot.username");
 			m_orderbot_password = m_pt.get<std::string>("orderbot.password");
 			m_orderbot_url = m_pt.get<std::string>("orderbot.url");	
+			m_redis_host=m_pt.get<std::string>("redis.host");	
+			m_redis_password=m_pt.get<std::string>("redis.password");
+			m_redis_port = boost::lexical_cast<unsigned short>(m_pt.get<std::string>("redis.port"));
+			m_webserver_url=m_pt.get<std::string>("webserver.url");
 		}
 	public:
 		boost::property_tree::ptree m_pt;
@@ -53,6 +57,10 @@ class iconfig:public boost::enable_shared_from_this<iconfig>, boost::noncopyable
 		string m_orderbot_url;	
 		static boost::mutex m_mu;	
 		static boost::shared_ptr<iconfig> m_ps;
+		string m_redis_host;
+		string m_redis_password;
+		unsigned short m_redis_port;
+		string m_webserver_url;
 };
 boost::shared_ptr<iconfig> iconfig::m_ps = nullptr;
 boost::mutex iconfig::m_mu;
