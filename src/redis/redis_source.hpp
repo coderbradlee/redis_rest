@@ -2,7 +2,7 @@
 #define	REDIS__RESOURCE_HPP
 #define BOOST_SPIRIT_THREADSAFE
 
-#include "renesolalog.h"
+#include "renesolalog.hpp"
 #include "redispp.h"
 #include <boost/date_time/posix_time/posix_time.hpp>
 #include <iostream>
