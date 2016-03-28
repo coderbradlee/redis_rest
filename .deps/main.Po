@@ -1,63 +1,48 @@
-main.o: src/main.cpp /usr/include/stdc-predef.h src/serverResource.hpp \
- /usr/local/include/boost/regex.hpp \
- /usr/local/include/boost/regex/config.hpp \
- /usr/local/include/boost/regex/user.hpp \
- /usr/local/include/boost/config.hpp \
- /usr/local/include/boost/config/user.hpp \
- /usr/local/include/boost/config/select_compiler_config.hpp \
- /usr/local/include/boost/config/compiler/gcc.hpp \
- /usr/local/include/boost/config/select_stdlib_config.hpp \
- /usr/include/c++/5.1.0/cstddef \
- /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/c++config.h \
- /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/os_defines.h \
+main.o: src/main.cpp /usr/include/stdc-predef.h src/config.hpp \
+ /usr/local/include/curl/curl.h /usr/local/include/curl/curlver.h \
+ /usr/local/include/curl/curlbuild.h /usr/include/sys/types.h \
  /usr/include/features.h /usr/include/sys/cdefs.h \
  /usr/include/bits/wordsize.h /usr/include/gnu/stubs.h \
- /usr/include/gnu/stubs-64.h \
- /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/cpu_defines.h \
+ /usr/include/gnu/stubs-64.h /usr/include/bits/types.h \
+ /usr/include/bits/typesizes.h /usr/include/time.h \
  /usr/lib/gcc/x86_64-linux-gnu/5.1.0/include/stddef.h \
- /usr/local/include/boost/config/stdlib/libstdcpp3.hpp \
- /usr/include/unistd.h /usr/include/bits/posix_opt.h \
- /usr/include/bits/environments.h /usr/include/bits/types.h \
- /usr/include/bits/typesizes.h /usr/include/bits/confname.h \
- /usr/include/getopt.h \
- /usr/local/include/boost/config/select_platform_config.hpp \
- /usr/local/include/boost/config/platform/linux.hpp \
- /usr/include/c++/5.1.0/cstdlib /usr/include/stdlib.h \
- /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
  /usr/include/endian.h /usr/include/bits/endian.h \
  /usr/include/bits/byteswap.h /usr/include/bits/byteswap-16.h \
- /usr/include/xlocale.h /usr/include/sys/types.h /usr/include/time.h \
  /usr/include/sys/select.h /usr/include/bits/select.h \
  /usr/include/bits/sigset.h /usr/include/bits/time.h \
  /usr/include/sys/sysmacros.h /usr/include/bits/pthreadtypes.h \
- /usr/include/alloca.h /usr/include/bits/stdlib-float.h \
- /usr/local/include/boost/config/posix_features.hpp \
- /usr/local/include/boost/config/suffix.hpp \
- /usr/local/include/boost/regex/config/cwchar.hpp \
- /usr/include/c++/5.1.0/cwchar /usr/include/wchar.h /usr/include/stdio.h \
+ /usr/include/sys/socket.h /usr/include/sys/uio.h /usr/include/bits/uio.h \
+ /usr/include/bits/socket.h /usr/include/bits/socket_type.h \
+ /usr/include/bits/sockaddr.h /usr/include/asm/socket.h \
+ /usr/include/asm-generic/socket.h /usr/include/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h /usr/local/include/curl/curlrules.h \
+ /usr/include/stdio.h /usr/include/libio.h /usr/include/_G_config.h \
+ /usr/include/wchar.h \
  /usr/lib/gcc/x86_64-linux-gnu/5.1.0/include/stdarg.h \
- /usr/include/bits/wchar.h /usr/include/c++/5.1.0/cwctype \
- /usr/include/wctype.h /usr/local/include/boost/config/auto_link.hpp \
- /usr/local/include/boost/regex/v4/regex.hpp \
- /usr/local/include/boost/regex/v4/regex_workaround.hpp \
- /usr/include/c++/5.1.0/new /usr/include/c++/5.1.0/exception \
- /usr/include/c++/5.1.0/bits/atomic_lockfree_defines.h \
- /usr/include/c++/5.1.0/bits/exception_ptr.h \
- /usr/include/c++/5.1.0/bits/exception_defines.h \
- /usr/include/c++/5.1.0/bits/nested_exception.h \
- /usr/include/c++/5.1.0/cstring /usr/include/string.h \
- /usr/include/c++/5.1.0/cassert /usr/include/assert.h \
- /usr/include/c++/5.1.0/cstdio /usr/include/libio.h \
- /usr/include/_G_config.h /usr/include/bits/stdio_lim.h \
- /usr/include/bits/sys_errlist.h /usr/include/bits/stdio.h \
- /usr/include/c++/5.1.0/climits \
+ /usr/include/bits/stdio_lim.h /usr/include/bits/sys_errlist.h \
+ /usr/include/bits/stdio.h \
  /usr/lib/gcc/x86_64-linux-gnu/5.1.0/include-fixed/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/5.1.0/include-fixed/syslimits.h \
  /usr/include/limits.h /usr/include/bits/posix1_lim.h \
  /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
  /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
- /usr/include/c++/5.1.0/string /usr/include/c++/5.1.0/bits/stringfwd.h \
+ /usr/include/bits/timex.h /usr/include/xlocale.h /usr/include/sys/time.h \
+ /usr/local/include/curl/easy.h /usr/local/include/curl/multi.h \
+ /usr/local/include/curl/curl.h /usr/include/string.h \
+ /usr/include/c++/5.1.0/cstdarg \
+ /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/c++config.h \
+ /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/os_defines.h \
+ /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/cpu_defines.h \
+ /usr/include/c++/5.1.0/iostream /usr/include/c++/5.1.0/ostream \
+ /usr/include/c++/5.1.0/ios /usr/include/c++/5.1.0/iosfwd \
+ /usr/include/c++/5.1.0/bits/stringfwd.h \
  /usr/include/c++/5.1.0/bits/memoryfwd.h \
+ /usr/include/c++/5.1.0/bits/postypes.h /usr/include/c++/5.1.0/cwchar \
+ /usr/include/bits/wchar.h /usr/include/c++/5.1.0/exception \
+ /usr/include/c++/5.1.0/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/5.1.0/bits/exception_ptr.h \
+ /usr/include/c++/5.1.0/bits/exception_defines.h \
+ /usr/include/c++/5.1.0/bits/nested_exception.h \
  /usr/include/c++/5.1.0/bits/char_traits.h \
  /usr/include/c++/5.1.0/bits/stl_algobase.h \
  /usr/include/c++/5.1.0/bits/functexcept.h \
@@ -74,16 +59,23 @@ main.o: src/main.cpp /usr/include/stdc-predef.h src/serverResource.hpp \
  /usr/include/c++/5.1.0/bits/stl_iterator.h \
  /usr/include/c++/5.1.0/bits/ptr_traits.h \
  /usr/include/c++/5.1.0/bits/predefined_ops.h \
- /usr/include/c++/5.1.0/bits/postypes.h /usr/include/c++/5.1.0/cstdint \
+ /usr/include/c++/5.1.0/cstdint \
  /usr/lib/gcc/x86_64-linux-gnu/5.1.0/include/stdint.h \
- /usr/include/stdint.h /usr/include/c++/5.1.0/bits/allocator.h \
- /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/c++allocator.h \
- /usr/include/c++/5.1.0/ext/new_allocator.h \
- /usr/include/c++/5.1.0/bits/localefwd.h \
+ /usr/include/stdint.h /usr/include/c++/5.1.0/bits/localefwd.h \
  /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/c++locale.h \
  /usr/include/c++/5.1.0/clocale /usr/include/locale.h \
- /usr/include/bits/locale.h /usr/include/c++/5.1.0/iosfwd \
- /usr/include/c++/5.1.0/cctype /usr/include/ctype.h \
+ /usr/include/bits/locale.h /usr/include/c++/5.1.0/cctype \
+ /usr/include/ctype.h /usr/include/c++/5.1.0/bits/ios_base.h \
+ /usr/include/c++/5.1.0/ext/atomicity.h \
+ /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/gthr.h \
+ /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/gthr-default.h \
+ /usr/include/pthread.h /usr/include/sched.h /usr/include/bits/sched.h \
+ /usr/include/bits/setjmp.h \
+ /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/atomic_word.h \
+ /usr/include/c++/5.1.0/bits/locale_classes.h \
+ /usr/include/c++/5.1.0/string /usr/include/c++/5.1.0/bits/allocator.h \
+ /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/c++allocator.h \
+ /usr/include/c++/5.1.0/ext/new_allocator.h /usr/include/c++/5.1.0/new \
  /usr/include/c++/5.1.0/bits/ostream_insert.h \
  /usr/include/c++/5.1.0/bits/cxxabi_forced.h \
  /usr/include/c++/5.1.0/bits/stl_function.h \
@@ -91,44 +83,67 @@ main.o: src/main.cpp /usr/include/stdc-predef.h src/serverResource.hpp \
  /usr/include/c++/5.1.0/bits/range_access.h \
  /usr/include/c++/5.1.0/initializer_list \
  /usr/include/c++/5.1.0/bits/basic_string.h \
- /usr/include/c++/5.1.0/ext/atomicity.h \
- /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/gthr.h \
- /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/gthr-default.h \
- /usr/include/pthread.h /usr/include/sched.h /usr/include/bits/sched.h \
- /usr/include/bits/timex.h /usr/include/bits/setjmp.h \
- /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/atomic_word.h \
  /usr/include/c++/5.1.0/ext/alloc_traits.h \
  /usr/include/c++/5.1.0/bits/alloc_traits.h \
  /usr/include/c++/5.1.0/ext/string_conversions.h \
- /usr/include/c++/5.1.0/cerrno /usr/include/errno.h \
- /usr/include/bits/errno.h /usr/include/linux/errno.h \
- /usr/include/asm/errno.h /usr/include/asm-generic/errno.h \
- /usr/include/asm-generic/errno-base.h \
+ /usr/include/c++/5.1.0/cstdlib /usr/include/stdlib.h \
+ /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
+ /usr/include/alloca.h /usr/include/bits/stdlib-float.h \
+ /usr/include/c++/5.1.0/cstdio /usr/include/c++/5.1.0/cerrno \
+ /usr/include/errno.h /usr/include/bits/errno.h \
+ /usr/include/linux/errno.h /usr/include/asm/errno.h \
+ /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/c++/5.1.0/bits/functional_hash.h \
  /usr/include/c++/5.1.0/bits/hash_bytes.h \
  /usr/include/c++/5.1.0/bits/basic_string.tcc \
- /usr/include/c++/5.1.0/stdexcept /usr/include/c++/5.1.0/iterator \
- /usr/include/c++/5.1.0/ostream /usr/include/c++/5.1.0/ios \
- /usr/include/c++/5.1.0/bits/ios_base.h \
- /usr/include/c++/5.1.0/bits/locale_classes.h \
  /usr/include/c++/5.1.0/bits/locale_classes.tcc \
  /usr/include/c++/5.1.0/system_error \
  /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/error_constants.h \
- /usr/include/c++/5.1.0/streambuf \
+ /usr/include/c++/5.1.0/stdexcept /usr/include/c++/5.1.0/streambuf \
  /usr/include/c++/5.1.0/bits/streambuf.tcc \
  /usr/include/c++/5.1.0/bits/basic_ios.h \
  /usr/include/c++/5.1.0/bits/locale_facets.h \
+ /usr/include/c++/5.1.0/cwctype /usr/include/wctype.h \
  /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/ctype_base.h \
  /usr/include/c++/5.1.0/bits/streambuf_iterator.h \
  /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/ctype_inline.h \
  /usr/include/c++/5.1.0/bits/locale_facets.tcc \
  /usr/include/c++/5.1.0/bits/basic_ios.tcc \
  /usr/include/c++/5.1.0/bits/ostream.tcc /usr/include/c++/5.1.0/istream \
- /usr/include/c++/5.1.0/bits/istream.tcc \
+ /usr/include/c++/5.1.0/bits/istream.tcc /usr/include/c++/5.1.0/map \
+ /usr/include/c++/5.1.0/bits/stl_tree.h \
+ /usr/include/c++/5.1.0/ext/aligned_buffer.h \
+ /usr/include/c++/5.1.0/bits/stl_map.h /usr/include/c++/5.1.0/tuple \
+ /usr/include/c++/5.1.0/utility /usr/include/c++/5.1.0/bits/stl_relops.h \
+ /usr/include/c++/5.1.0/array \
+ /usr/include/c++/5.1.0/bits/uses_allocator.h \
+ /usr/include/c++/5.1.0/bits/stl_multimap.h src/serverResource.hpp \
+ /usr/local/include/boost/regex.hpp \
+ /usr/local/include/boost/regex/config.hpp \
+ /usr/local/include/boost/regex/user.hpp \
+ /usr/local/include/boost/config.hpp \
+ /usr/local/include/boost/config/user.hpp \
+ /usr/local/include/boost/config/select_compiler_config.hpp \
+ /usr/local/include/boost/config/compiler/gcc.hpp \
+ /usr/local/include/boost/config/select_stdlib_config.hpp \
+ /usr/include/c++/5.1.0/cstddef \
+ /usr/local/include/boost/config/stdlib/libstdcpp3.hpp \
+ /usr/include/unistd.h /usr/include/bits/posix_opt.h \
+ /usr/include/bits/environments.h /usr/include/bits/confname.h \
+ /usr/include/getopt.h \
+ /usr/local/include/boost/config/select_platform_config.hpp \
+ /usr/local/include/boost/config/platform/linux.hpp \
+ /usr/local/include/boost/config/posix_features.hpp \
+ /usr/local/include/boost/config/suffix.hpp \
+ /usr/local/include/boost/regex/config/cwchar.hpp \
+ /usr/local/include/boost/config/auto_link.hpp \
+ /usr/local/include/boost/regex/v4/regex.hpp \
+ /usr/local/include/boost/regex/v4/regex_workaround.hpp \
+ /usr/include/c++/5.1.0/cstring /usr/include/c++/5.1.0/cassert \
+ /usr/include/assert.h /usr/include/c++/5.1.0/climits \
+ /usr/include/c++/5.1.0/iterator \
  /usr/include/c++/5.1.0/bits/stream_iterator.h \
- /usr/include/c++/5.1.0/algorithm /usr/include/c++/5.1.0/utility \
- /usr/include/c++/5.1.0/bits/stl_relops.h \
- /usr/include/c++/5.1.0/bits/stl_algo.h \
+ /usr/include/c++/5.1.0/algorithm /usr/include/c++/5.1.0/bits/stl_algo.h \
  /usr/include/c++/5.1.0/bits/algorithmfwd.h \
  /usr/include/c++/5.1.0/bits/stl_heap.h \
  /usr/include/c++/5.1.0/bits/stl_tempbuf.h \
@@ -198,13 +213,7 @@ main.o: src/main.cpp /usr/include/stdc-predef.h src/serverResource.hpp \
  /usr/lib/gcc/x86_64-linux-gnu/5.1.0/include/xsavesintrin.h \
  /usr/lib/gcc/x86_64-linux-gnu/5.1.0/include/xsavecintrin.h \
  /usr/include/c++/5.1.0/bits/random.tcc /usr/include/c++/5.1.0/numeric \
- /usr/include/c++/5.1.0/bits/stl_numeric.h /usr/include/c++/5.1.0/map \
- /usr/include/c++/5.1.0/bits/stl_tree.h \
- /usr/include/c++/5.1.0/ext/aligned_buffer.h \
- /usr/include/c++/5.1.0/bits/stl_map.h /usr/include/c++/5.1.0/tuple \
- /usr/include/c++/5.1.0/array \
- /usr/include/c++/5.1.0/bits/uses_allocator.h \
- /usr/include/c++/5.1.0/bits/stl_multimap.h \
+ /usr/include/c++/5.1.0/bits/stl_numeric.h \
  /usr/local/include/boost/limits.hpp /usr/local/include/boost/assert.hpp \
  /usr/local/include/boost/cstdint.hpp \
  /usr/local/include/boost/throw_exception.hpp \
@@ -593,7 +602,7 @@ main.o: src/main.cpp /usr/include/stdc-predef.h src/serverResource.hpp \
  /usr/local/include/boost/regex/v4/regex_replace.hpp \
  /usr/local/include/boost/regex/v4/regex_merge.hpp \
  /usr/local/include/boost/regex/v4/regex_split.hpp src/renesolalog.hpp \
- /usr/include/c++/5.1.0/iostream /usr/include/c++/5.1.0/fstream \
+ /usr/include/c++/5.1.0/fstream \
  /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/basic_file.h \
  /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/c++io.h \
  /usr/include/c++/5.1.0/bits/fstream.tcc \
@@ -651,7 +660,7 @@ main.o: src/main.cpp /usr/include/stdc-predef.h src/serverResource.hpp \
  /usr/local/include/boost/date_time/wrapping_int.hpp \
  /usr/local/include/boost/date_time/date_generators.hpp \
  /usr/local/include/boost/date_time/date_clock_device.hpp \
- /usr/local/include/boost/date_time/c_time.hpp /usr/include/sys/time.h \
+ /usr/local/include/boost/date_time/c_time.hpp \
  /usr/local/include/boost/date_time/date_iterator.hpp \
  /usr/local/include/boost/date_time/time_system_split.hpp \
  /usr/local/include/boost/date_time/time_system_counted.hpp \
@@ -1708,7 +1717,6 @@ main.o: src/main.cpp /usr/include/stdc-predef.h src/serverResource.hpp \
  /usr/local/include/boost/log/expressions/formatters/csv_decorator.hpp \
  /usr/local/include/boost/log/expressions/formatters/c_decorator.hpp \
  /usr/local/include/boost/log/detail/snprintf.hpp \
- /usr/include/c++/5.1.0/cstdarg \
  /usr/local/include/boost/log/expressions/formatters/if.hpp \
  /usr/local/include/boost/log/expressions/formatters/wrap_formatter.hpp \
  /usr/local/include/boost/log/detail/function_traits.hpp \
@@ -2461,7 +2469,7 @@ main.o: src/main.cpp /usr/include/stdc-predef.h src/serverResource.hpp \
  /usr/local/include/boost/spirit/home/classic/iterator/impl/file_iterator.ipp \
  /usr/include/sys/stat.h /usr/include/bits/stat.h /usr/include/fcntl.h \
  /usr/include/bits/fcntl.h /usr/include/bits/fcntl-linux.h \
- /usr/include/bits/uio.h /usr/include/sys/mman.h /usr/include/bits/mman.h \
+ /usr/include/sys/mman.h /usr/include/bits/mman.h \
  /usr/local/include/boost/spirit/home/classic/iterator/fixed_size_queue.hpp \
  /usr/local/include/boost/spirit/home/classic/iterator/position_iterator.hpp \
  /usr/local/include/boost/spirit/home/classic/iterator/position_iterator_fwd.hpp \
@@ -2567,14 +2575,9 @@ main.o: src/main.cpp /usr/include/stdc-predef.h src/serverResource.hpp \
  /usr/local/include/boost/asio/detail/impl/throw_error.ipp \
  /usr/local/include/boost/asio/detail/throw_exception.hpp \
  /usr/local/include/boost/asio/error.hpp /usr/include/netdb.h \
- /usr/include/netinet/in.h /usr/include/sys/socket.h \
- /usr/include/sys/uio.h /usr/include/bits/socket.h \
- /usr/include/bits/socket_type.h /usr/include/bits/sockaddr.h \
- /usr/include/asm/socket.h /usr/include/asm-generic/socket.h \
- /usr/include/asm/sockios.h /usr/include/asm-generic/sockios.h \
- /usr/include/bits/in.h /usr/include/rpc/netdb.h \
- /usr/include/bits/siginfo.h /usr/include/bits/netdb.h \
- /usr/local/include/boost/asio/impl/error.ipp \
+ /usr/include/netinet/in.h /usr/include/bits/in.h \
+ /usr/include/rpc/netdb.h /usr/include/bits/siginfo.h \
+ /usr/include/bits/netdb.h /usr/local/include/boost/asio/impl/error.ipp \
  /usr/local/include/boost/asio/detail/impl/service_registry.hpp \
  /usr/local/include/boost/asio/detail/impl/service_registry.ipp \
  /usr/local/include/boost/asio/detail/task_io_service.hpp \
@@ -2935,39 +2938,20 @@ main.o: src/main.cpp /usr/include/stdc-predef.h src/serverResource.hpp \
  /usr/local/include/boost/asio/ssl/detail/write_op.hpp \
  /usr/local/include/boost/asio/ssl/stream_service.hpp \
  src/server_https.hpp /usr/local/include/boost/asio/yield.hpp \
- /usr/local/include/boost/asio/coroutine.hpp src/mysql/mysql_api.hpp \
- src/mysql/MySql.hpp /usr/include/mysql/mysql.h \
- /usr/include/mysql/mysql_version.h /usr/include/mysql/mysql_com.h \
- /usr/include/mysql/mysql_time.h /usr/include/mysql/my_list.h \
- /usr/include/mysql/typelib.h /usr/include/mysql/my_alloc.h \
- src/mysql/InputBinder.hpp src/mysql/MySqlException.hpp \
- src/mysql/MySqlPreparedStatement.hpp src/mysql/OutputBinder.hpp
+ /usr/local/include/boost/asio/coroutine.hpp src/orderbot.hpp \
+ src/include.hpp
 
 /usr/include/stdc-predef.h:
 
-src/serverResource.hpp:
+src/config.hpp:
 
-/usr/local/include/boost/regex.hpp:
+/usr/local/include/curl/curl.h:
 
-/usr/local/include/boost/regex/config.hpp:
+/usr/local/include/curl/curlver.h:
 
-/usr/local/include/boost/regex/user.hpp:
+/usr/local/include/curl/curlbuild.h:
 
-/usr/local/include/boost/config.hpp:
-
-/usr/local/include/boost/config/user.hpp:
-
-/usr/local/include/boost/config/select_compiler_config.hpp:
-
-/usr/local/include/boost/config/compiler/gcc.hpp:
-
-/usr/local/include/boost/config/select_stdlib_config.hpp:
-
-/usr/include/c++/5.1.0/cstddef:
-
-/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/c++config.h:
-
-/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/os_defines.h:
+/usr/include/sys/types.h:
 
 /usr/include/features.h:
 
@@ -2979,37 +2963,13 @@ src/serverResource.hpp:
 
 /usr/include/gnu/stubs-64.h:
 
-/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/cpu_defines.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/5.1.0/include/stddef.h:
-
-/usr/local/include/boost/config/stdlib/libstdcpp3.hpp:
-
-/usr/include/unistd.h:
-
-/usr/include/bits/posix_opt.h:
-
-/usr/include/bits/environments.h:
-
 /usr/include/bits/types.h:
 
 /usr/include/bits/typesizes.h:
 
-/usr/include/bits/confname.h:
+/usr/include/time.h:
 
-/usr/include/getopt.h:
-
-/usr/local/include/boost/config/select_platform_config.hpp:
-
-/usr/local/include/boost/config/platform/linux.hpp:
-
-/usr/include/c++/5.1.0/cstdlib:
-
-/usr/include/stdlib.h:
-
-/usr/include/bits/waitflags.h:
-
-/usr/include/bits/waitstatus.h:
+/usr/lib/gcc/x86_64-linux-gnu/5.1.0/include/stddef.h:
 
 /usr/include/endian.h:
 
@@ -3018,12 +2978,6 @@ src/serverResource.hpp:
 /usr/include/bits/byteswap.h:
 
 /usr/include/bits/byteswap-16.h:
-
-/usr/include/xlocale.h:
-
-/usr/include/sys/types.h:
-
-/usr/include/time.h:
 
 /usr/include/sys/select.h:
 
@@ -3037,69 +2991,43 @@ src/serverResource.hpp:
 
 /usr/include/bits/pthreadtypes.h:
 
-/usr/include/alloca.h:
+/usr/include/sys/socket.h:
 
-/usr/include/bits/stdlib-float.h:
+/usr/include/sys/uio.h:
 
-/usr/local/include/boost/config/posix_features.hpp:
+/usr/include/bits/uio.h:
 
-/usr/local/include/boost/config/suffix.hpp:
+/usr/include/bits/socket.h:
 
-/usr/local/include/boost/regex/config/cwchar.hpp:
+/usr/include/bits/socket_type.h:
 
-/usr/include/c++/5.1.0/cwchar:
+/usr/include/bits/sockaddr.h:
 
-/usr/include/wchar.h:
+/usr/include/asm/socket.h:
+
+/usr/include/asm-generic/socket.h:
+
+/usr/include/asm/sockios.h:
+
+/usr/include/asm-generic/sockios.h:
+
+/usr/local/include/curl/curlrules.h:
 
 /usr/include/stdio.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/5.1.0/include/stdarg.h:
-
-/usr/include/bits/wchar.h:
-
-/usr/include/c++/5.1.0/cwctype:
-
-/usr/include/wctype.h:
-
-/usr/local/include/boost/config/auto_link.hpp:
-
-/usr/local/include/boost/regex/v4/regex.hpp:
-
-/usr/local/include/boost/regex/v4/regex_workaround.hpp:
-
-/usr/include/c++/5.1.0/new:
-
-/usr/include/c++/5.1.0/exception:
-
-/usr/include/c++/5.1.0/bits/atomic_lockfree_defines.h:
-
-/usr/include/c++/5.1.0/bits/exception_ptr.h:
-
-/usr/include/c++/5.1.0/bits/exception_defines.h:
-
-/usr/include/c++/5.1.0/bits/nested_exception.h:
-
-/usr/include/c++/5.1.0/cstring:
-
-/usr/include/string.h:
-
-/usr/include/c++/5.1.0/cassert:
-
-/usr/include/assert.h:
-
-/usr/include/c++/5.1.0/cstdio:
 
 /usr/include/libio.h:
 
 /usr/include/_G_config.h:
+
+/usr/include/wchar.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/5.1.0/include/stdarg.h:
 
 /usr/include/bits/stdio_lim.h:
 
 /usr/include/bits/sys_errlist.h:
 
 /usr/include/bits/stdio.h:
-
-/usr/include/c++/5.1.0/climits:
 
 /usr/lib/gcc/x86_64-linux-gnu/5.1.0/include-fixed/limits.h:
 
@@ -3117,11 +3045,55 @@ src/serverResource.hpp:
 
 /usr/include/bits/xopen_lim.h:
 
-/usr/include/c++/5.1.0/string:
+/usr/include/bits/timex.h:
+
+/usr/include/xlocale.h:
+
+/usr/include/sys/time.h:
+
+/usr/local/include/curl/easy.h:
+
+/usr/local/include/curl/multi.h:
+
+/usr/local/include/curl/curl.h:
+
+/usr/include/string.h:
+
+/usr/include/c++/5.1.0/cstdarg:
+
+/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/c++config.h:
+
+/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/os_defines.h:
+
+/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/cpu_defines.h:
+
+/usr/include/c++/5.1.0/iostream:
+
+/usr/include/c++/5.1.0/ostream:
+
+/usr/include/c++/5.1.0/ios:
+
+/usr/include/c++/5.1.0/iosfwd:
 
 /usr/include/c++/5.1.0/bits/stringfwd.h:
 
 /usr/include/c++/5.1.0/bits/memoryfwd.h:
+
+/usr/include/c++/5.1.0/bits/postypes.h:
+
+/usr/include/c++/5.1.0/cwchar:
+
+/usr/include/bits/wchar.h:
+
+/usr/include/c++/5.1.0/exception:
+
+/usr/include/c++/5.1.0/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/5.1.0/bits/exception_ptr.h:
+
+/usr/include/c++/5.1.0/bits/exception_defines.h:
+
+/usr/include/c++/5.1.0/bits/nested_exception.h:
 
 /usr/include/c++/5.1.0/bits/char_traits.h:
 
@@ -3155,19 +3127,11 @@ src/serverResource.hpp:
 
 /usr/include/c++/5.1.0/bits/predefined_ops.h:
 
-/usr/include/c++/5.1.0/bits/postypes.h:
-
 /usr/include/c++/5.1.0/cstdint:
 
 /usr/lib/gcc/x86_64-linux-gnu/5.1.0/include/stdint.h:
 
 /usr/include/stdint.h:
-
-/usr/include/c++/5.1.0/bits/allocator.h:
-
-/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/c++allocator.h:
-
-/usr/include/c++/5.1.0/ext/new_allocator.h:
 
 /usr/include/c++/5.1.0/bits/localefwd.h:
 
@@ -3179,11 +3143,39 @@ src/serverResource.hpp:
 
 /usr/include/bits/locale.h:
 
-/usr/include/c++/5.1.0/iosfwd:
-
 /usr/include/c++/5.1.0/cctype:
 
 /usr/include/ctype.h:
+
+/usr/include/c++/5.1.0/bits/ios_base.h:
+
+/usr/include/c++/5.1.0/ext/atomicity.h:
+
+/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/gthr.h:
+
+/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/gthr-default.h:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/bits/sched.h:
+
+/usr/include/bits/setjmp.h:
+
+/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/atomic_word.h:
+
+/usr/include/c++/5.1.0/bits/locale_classes.h:
+
+/usr/include/c++/5.1.0/string:
+
+/usr/include/c++/5.1.0/bits/allocator.h:
+
+/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/c++allocator.h:
+
+/usr/include/c++/5.1.0/ext/new_allocator.h:
+
+/usr/include/c++/5.1.0/new:
 
 /usr/include/c++/5.1.0/bits/ostream_insert.h:
 
@@ -3199,29 +3191,25 @@ src/serverResource.hpp:
 
 /usr/include/c++/5.1.0/bits/basic_string.h:
 
-/usr/include/c++/5.1.0/ext/atomicity.h:
-
-/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/gthr.h:
-
-/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/gthr-default.h:
-
-/usr/include/pthread.h:
-
-/usr/include/sched.h:
-
-/usr/include/bits/sched.h:
-
-/usr/include/bits/timex.h:
-
-/usr/include/bits/setjmp.h:
-
-/usr/include/c++/5.1.0/x86_64-linux-gnu/bits/atomic_word.h:
-
 /usr/include/c++/5.1.0/ext/alloc_traits.h:
 
 /usr/include/c++/5.1.0/bits/alloc_traits.h:
 
 /usr/include/c++/5.1.0/ext/string_conversions.h:
+
+/usr/include/c++/5.1.0/cstdlib:
+
+/usr/include/stdlib.h:
+
+/usr/include/bits/waitflags.h:
+
+/usr/include/bits/waitstatus.h:
+
+/usr/include/alloca.h:
+
+/usr/include/bits/stdlib-float.h:
+
+/usr/include/c++/5.1.0/cstdio:
 
 /usr/include/c++/5.1.0/cerrno:
 
@@ -3243,23 +3231,13 @@ src/serverResource.hpp:
 
 /usr/include/c++/5.1.0/bits/basic_string.tcc:
 
-/usr/include/c++/5.1.0/stdexcept:
-
-/usr/include/c++/5.1.0/iterator:
-
-/usr/include/c++/5.1.0/ostream:
-
-/usr/include/c++/5.1.0/ios:
-
-/usr/include/c++/5.1.0/bits/ios_base.h:
-
-/usr/include/c++/5.1.0/bits/locale_classes.h:
-
 /usr/include/c++/5.1.0/bits/locale_classes.tcc:
 
 /usr/include/c++/5.1.0/system_error:
 
 /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/error_constants.h:
+
+/usr/include/c++/5.1.0/stdexcept:
 
 /usr/include/c++/5.1.0/streambuf:
 
@@ -3268,6 +3246,10 @@ src/serverResource.hpp:
 /usr/include/c++/5.1.0/bits/basic_ios.h:
 
 /usr/include/c++/5.1.0/bits/locale_facets.h:
+
+/usr/include/c++/5.1.0/cwctype:
+
+/usr/include/wctype.h:
 
 /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/ctype_base.h:
 
@@ -3285,13 +3267,87 @@ src/serverResource.hpp:
 
 /usr/include/c++/5.1.0/bits/istream.tcc:
 
-/usr/include/c++/5.1.0/bits/stream_iterator.h:
+/usr/include/c++/5.1.0/map:
 
-/usr/include/c++/5.1.0/algorithm:
+/usr/include/c++/5.1.0/bits/stl_tree.h:
+
+/usr/include/c++/5.1.0/ext/aligned_buffer.h:
+
+/usr/include/c++/5.1.0/bits/stl_map.h:
+
+/usr/include/c++/5.1.0/tuple:
 
 /usr/include/c++/5.1.0/utility:
 
 /usr/include/c++/5.1.0/bits/stl_relops.h:
+
+/usr/include/c++/5.1.0/array:
+
+/usr/include/c++/5.1.0/bits/uses_allocator.h:
+
+/usr/include/c++/5.1.0/bits/stl_multimap.h:
+
+src/serverResource.hpp:
+
+/usr/local/include/boost/regex.hpp:
+
+/usr/local/include/boost/regex/config.hpp:
+
+/usr/local/include/boost/regex/user.hpp:
+
+/usr/local/include/boost/config.hpp:
+
+/usr/local/include/boost/config/user.hpp:
+
+/usr/local/include/boost/config/select_compiler_config.hpp:
+
+/usr/local/include/boost/config/compiler/gcc.hpp:
+
+/usr/local/include/boost/config/select_stdlib_config.hpp:
+
+/usr/include/c++/5.1.0/cstddef:
+
+/usr/local/include/boost/config/stdlib/libstdcpp3.hpp:
+
+/usr/include/unistd.h:
+
+/usr/include/bits/posix_opt.h:
+
+/usr/include/bits/environments.h:
+
+/usr/include/bits/confname.h:
+
+/usr/include/getopt.h:
+
+/usr/local/include/boost/config/select_platform_config.hpp:
+
+/usr/local/include/boost/config/platform/linux.hpp:
+
+/usr/local/include/boost/config/posix_features.hpp:
+
+/usr/local/include/boost/config/suffix.hpp:
+
+/usr/local/include/boost/regex/config/cwchar.hpp:
+
+/usr/local/include/boost/config/auto_link.hpp:
+
+/usr/local/include/boost/regex/v4/regex.hpp:
+
+/usr/local/include/boost/regex/v4/regex_workaround.hpp:
+
+/usr/include/c++/5.1.0/cstring:
+
+/usr/include/c++/5.1.0/cassert:
+
+/usr/include/assert.h:
+
+/usr/include/c++/5.1.0/climits:
+
+/usr/include/c++/5.1.0/iterator:
+
+/usr/include/c++/5.1.0/bits/stream_iterator.h:
+
+/usr/include/c++/5.1.0/algorithm:
 
 /usr/include/c++/5.1.0/bits/stl_algo.h:
 
@@ -3450,22 +3506,6 @@ src/serverResource.hpp:
 /usr/include/c++/5.1.0/numeric:
 
 /usr/include/c++/5.1.0/bits/stl_numeric.h:
-
-/usr/include/c++/5.1.0/map:
-
-/usr/include/c++/5.1.0/bits/stl_tree.h:
-
-/usr/include/c++/5.1.0/ext/aligned_buffer.h:
-
-/usr/include/c++/5.1.0/bits/stl_map.h:
-
-/usr/include/c++/5.1.0/tuple:
-
-/usr/include/c++/5.1.0/array:
-
-/usr/include/c++/5.1.0/bits/uses_allocator.h:
-
-/usr/include/c++/5.1.0/bits/stl_multimap.h:
 
 /usr/local/include/boost/limits.hpp:
 
@@ -4263,8 +4303,6 @@ src/serverResource.hpp:
 
 src/renesolalog.hpp:
 
-/usr/include/c++/5.1.0/iostream:
-
 /usr/include/c++/5.1.0/fstream:
 
 /usr/include/c++/5.1.0/x86_64-linux-gnu/bits/basic_file.h:
@@ -4384,8 +4422,6 @@ src/renesolalog.hpp:
 /usr/local/include/boost/date_time/date_clock_device.hpp:
 
 /usr/local/include/boost/date_time/c_time.hpp:
-
-/usr/include/sys/time.h:
 
 /usr/local/include/boost/date_time/date_iterator.hpp:
 
@@ -6501,8 +6537,6 @@ src/renesolalog.hpp:
 
 /usr/local/include/boost/log/detail/snprintf.hpp:
 
-/usr/include/c++/5.1.0/cstdarg:
-
 /usr/local/include/boost/log/expressions/formatters/if.hpp:
 
 /usr/local/include/boost/log/expressions/formatters/wrap_formatter.hpp:
@@ -8035,8 +8069,6 @@ include/corvusoft/restbed/context_placeholder_base.hpp:
 
 /usr/include/bits/fcntl-linux.h:
 
-/usr/include/bits/uio.h:
-
 /usr/include/sys/mman.h:
 
 /usr/include/bits/mman.h:
@@ -8258,24 +8290,6 @@ src/client_http.hpp:
 /usr/include/netdb.h:
 
 /usr/include/netinet/in.h:
-
-/usr/include/sys/socket.h:
-
-/usr/include/sys/uio.h:
-
-/usr/include/bits/socket.h:
-
-/usr/include/bits/socket_type.h:
-
-/usr/include/bits/sockaddr.h:
-
-/usr/include/asm/socket.h:
-
-/usr/include/asm-generic/socket.h:
-
-/usr/include/asm/sockios.h:
-
-/usr/include/asm-generic/sockios.h:
 
 /usr/include/bits/in.h:
 
@@ -9095,28 +9109,6 @@ src/server_https.hpp:
 
 /usr/local/include/boost/asio/coroutine.hpp:
 
-src/mysql/mysql_api.hpp:
+src/orderbot.hpp:
 
-src/mysql/MySql.hpp:
-
-/usr/include/mysql/mysql.h:
-
-/usr/include/mysql/mysql_version.h:
-
-/usr/include/mysql/mysql_com.h:
-
-/usr/include/mysql/mysql_time.h:
-
-/usr/include/mysql/my_list.h:
-
-/usr/include/mysql/typelib.h:
-
-/usr/include/mysql/my_alloc.h:
-
-src/mysql/InputBinder.hpp:
-
-src/mysql/MySqlException.hpp:
-
-src/mysql/MySqlPreparedStatement.hpp:
-
-src/mysql/OutputBinder.hpp:
+src/include.hpp:

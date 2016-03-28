@@ -60,10 +60,10 @@ am__make_running_with_option = \
   test $$has_opt = yes
 am__make_dryrun = (target_option=n; $(am__make_running_with_option))
 am__make_keepgoing = (target_option=k; $(am__make_running_with_option))
-pkgdatadir = $(datadir)/customer_credit_check
-pkgincludedir = $(includedir)/customer_credit_check
-pkglibdir = $(libdir)/customer_credit_check
-pkglibexecdir = $(libexecdir)/customer_credit_check
+pkgdatadir = $(datadir)/redis_rest
+pkgincludedir = $(includedir)/redis_rest
+pkglibdir = $(libdir)/redis_rest
+pkglibexecdir = $(libexecdir)/redis_rest
 am__cd = CDPATH="$${ZSH_VERSION+.}$(PATH_SEPARATOR)" && cd
 install_sh_DATA = $(install_sh) -c -m 644
 install_sh_PROGRAM = $(install_sh) -c
@@ -76,7 +76,7 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-bin_PROGRAMS = customer_credit_check$(EXEEXT)
+bin_PROGRAMS = redis_rest$(EXEEXT)
 subdir = .
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/configure $(am__configure_deps) depcomp \
@@ -92,11 +92,9 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_customer_credit_check_OBJECTS = main.$(OBJEXT) MySql.$(OBJEXT) \
-	MySqlException.$(OBJEXT) MySqlPreparedStatement.$(OBJEXT) \
-	OutputBinder.$(OBJEXT)
-customer_credit_check_OBJECTS = $(am_customer_credit_check_OBJECTS)
-customer_credit_check_DEPENDENCIES = lib/librestbed.a
+am_redis_rest_OBJECTS = main.$(OBJEXT)
+redis_rest_OBJECTS = $(am_redis_rest_OBJECTS)
+redis_rest_DEPENDENCIES = lib/librestbed.a
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
 am__v_P_0 = false
@@ -142,8 +140,8 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(customer_credit_check_SOURCES)
-DIST_SOURCES = $(customer_credit_check_SOURCES)
+SOURCES = $(redis_rest_SOURCES)
+DIST_SOURCES = $(redis_rest_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -187,12 +185,12 @@ distuninstallcheck_listfiles = find . -type f -print
 am__distuninstallcheck_listfiles = $(distuninstallcheck_listfiles) \
   | sed 's|^\./|$(prefix)/|' | grep -v '$(infodir)/dir$$'
 distcleancheck_listfiles = find . -type f -print
-ACLOCAL = ${SHELL} /root/customer_credit_check/missing aclocal-1.13
+ACLOCAL = ${SHELL} /root/redis_rest/missing aclocal-1.13
 AMTAR = $${TAR-tar}
 AM_DEFAULT_VERBOSITY = 1
-AUTOCONF = ${SHELL} /root/customer_credit_check/missing autoconf
-AUTOHEADER = ${SHELL} /root/customer_credit_check/missing autoheader
-AUTOMAKE = ${SHELL} /root/customer_credit_check/missing automake-1.13
+AUTOCONF = ${SHELL} /root/redis_rest/missing autoconf
+AUTOHEADER = ${SHELL} /root/redis_rest/missing autoheader
+AUTOMAKE = ${SHELL} /root/redis_rest/missing automake-1.13
 AWK = gawk
 CC = gcc
 CCDEPMODE = depmode=gcc3
@@ -203,7 +201,7 @@ CXX = g++
 CXXDEPMODE = depmode=gcc3
 CXXFLAGS = -std=c++11 -pg -O3 -Isrc -Iinclude -Werror -lboost_program_options -lboost_filesystem -lboost_coroutine -lboost_system -lboost_thread -lpthread -lboost_context -lboost_date_time -lboost_log_setup -lboost_log -lssl -lcrypto -lboost_regex -lcurl -lboost_timer -lmysqlclient_r -DBUILD_SSL
 CYGPATH_W = echo
-DEFS = -DPACKAGE_NAME=\"customer_credit_check\" -DPACKAGE_TARNAME=\"customer_credit_check\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"customer_credit_check\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"customer_credit_check\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE__BOOL=1 -DHAVE_SOCKET=1
+DEFS = -DPACKAGE_NAME=\"redis_rest\" -DPACKAGE_TARNAME=\"redis_rest\" -DPACKAGE_VERSION=\"1.0\" -DPACKAGE_STRING=\"redis_rest\ 1.0\" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"redis_rest\" -DVERSION=\"1.0\" -DSTDC_HEADERS=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_MEMORY_H=1 -DHAVE_STRINGS_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_UNISTD_H=1 -DHAVE__BOOL=1 -DHAVE_SOCKET=1
 DEPDIR = .deps
 ECHO_C = 
 ECHO_N = -n
@@ -220,14 +218,14 @@ LDFLAGS =
 LIBOBJS = 
 LIBS = 
 LTLIBOBJS = 
-MAKEINFO = ${SHELL} /root/customer_credit_check/missing makeinfo
+MAKEINFO = ${SHELL} /root/redis_rest/missing makeinfo
 MKDIR_P = /usr/bin/mkdir -p
 OBJEXT = o
-PACKAGE = customer_credit_check
+PACKAGE = redis_rest
 PACKAGE_BUGREPORT = 
-PACKAGE_NAME = customer_credit_check
-PACKAGE_STRING = customer_credit_check 1.0
-PACKAGE_TARNAME = customer_credit_check
+PACKAGE_NAME = redis_rest
+PACKAGE_STRING = redis_rest 1.0
+PACKAGE_TARNAME = redis_rest
 PACKAGE_URL = 
 PACKAGE_VERSION = 1.0
 PATH_SEPARATOR = :
@@ -236,10 +234,10 @@ SET_MAKE =
 SHELL = /bin/sh
 STRIP = 
 VERSION = 1.0
-abs_builddir = /root/customer_credit_check
-abs_srcdir = /root/customer_credit_check
-abs_top_builddir = /root/customer_credit_check
-abs_top_srcdir = /root/customer_credit_check
+abs_builddir = /root/redis_rest
+abs_srcdir = /root/redis_rest
+abs_top_builddir = /root/redis_rest
+abs_top_srcdir = /root/redis_rest
 ac_ct_CC = gcc
 ac_ct_CXX = g++
 am__include = include
@@ -259,7 +257,7 @@ host_alias =
 htmldir = ${docdir}
 includedir = ${prefix}/include
 infodir = ${datarootdir}/info
-install_sh = ${SHELL} /root/customer_credit_check/install-sh
+install_sh = ${SHELL} /root/redis_rest/install-sh
 libdir = ${exec_prefix}/lib
 libexecdir = ${exec_prefix}/libexec
 localedir = ${datarootdir}/locale
@@ -280,8 +278,8 @@ top_build_prefix =
 top_builddir = .
 top_srcdir = .
 AUTOMAKE_OPTIONS = foreign
-customer_credit_check_SOURCES = src/curl_client.hpp src/client_http.hpp src/renesolalog.hpp src/serverResource.hpp src/main.cpp src/mysql/MySql.cpp src/mysql/MySqlException.cpp src/mysql/MySqlPreparedStatement.cpp src/mysql/OutputBinder.cpp
-customer_credit_check_LDADD = lib/librestbed.a
+redis_rest_SOURCES = src/curl_client.hpp src/client_http.hpp src/renesolalog.hpp src/serverResource.hpp src/main.cpp
+redis_rest_LDADD = lib/librestbed.a
 all: all-am
 
 .SUFFIXES:
@@ -363,9 +361,9 @@ uninstall-binPROGRAMS:
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
 
-customer_credit_check$(EXEEXT): $(customer_credit_check_OBJECTS) $(customer_credit_check_DEPENDENCIES) $(EXTRA_customer_credit_check_DEPENDENCIES) 
-	@rm -f customer_credit_check$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(customer_credit_check_OBJECTS) $(customer_credit_check_LDADD) $(LIBS)
+redis_rest$(EXEEXT): $(redis_rest_OBJECTS) $(redis_rest_DEPENDENCIES) $(EXTRA_redis_rest_DEPENDENCIES) 
+	@rm -f redis_rest$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(redis_rest_OBJECTS) $(redis_rest_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -373,10 +371,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-include ./$(DEPDIR)/MySql.Po
-include ./$(DEPDIR)/MySqlException.Po
-include ./$(DEPDIR)/MySqlPreparedStatement.Po
-include ./$(DEPDIR)/OutputBinder.Po
 include ./$(DEPDIR)/main.Po
 
 .cpp.o:
@@ -406,62 +400,6 @@ main.obj: src/main.cpp
 #	$(AM_V_CXX)source='src/main.cpp' object='main.obj' libtool=no \
 #	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
 #	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.obj `if test -f 'src/main.cpp'; then $(CYGPATH_W) 'src/main.cpp'; else $(CYGPATH_W) '$(srcdir)/src/main.cpp'; fi`
-
-MySql.o: src/mysql/MySql.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MySql.o -MD -MP -MF $(DEPDIR)/MySql.Tpo -c -o MySql.o `test -f 'src/mysql/MySql.cpp' || echo '$(srcdir)/'`src/mysql/MySql.cpp
-	$(AM_V_at)$(am__mv) $(DEPDIR)/MySql.Tpo $(DEPDIR)/MySql.Po
-#	$(AM_V_CXX)source='src/mysql/MySql.cpp' object='MySql.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MySql.o `test -f 'src/mysql/MySql.cpp' || echo '$(srcdir)/'`src/mysql/MySql.cpp
-
-MySql.obj: src/mysql/MySql.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MySql.obj -MD -MP -MF $(DEPDIR)/MySql.Tpo -c -o MySql.obj `if test -f 'src/mysql/MySql.cpp'; then $(CYGPATH_W) 'src/mysql/MySql.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/MySql.cpp'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/MySql.Tpo $(DEPDIR)/MySql.Po
-#	$(AM_V_CXX)source='src/mysql/MySql.cpp' object='MySql.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MySql.obj `if test -f 'src/mysql/MySql.cpp'; then $(CYGPATH_W) 'src/mysql/MySql.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/MySql.cpp'; fi`
-
-MySqlException.o: src/mysql/MySqlException.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MySqlException.o -MD -MP -MF $(DEPDIR)/MySqlException.Tpo -c -o MySqlException.o `test -f 'src/mysql/MySqlException.cpp' || echo '$(srcdir)/'`src/mysql/MySqlException.cpp
-	$(AM_V_at)$(am__mv) $(DEPDIR)/MySqlException.Tpo $(DEPDIR)/MySqlException.Po
-#	$(AM_V_CXX)source='src/mysql/MySqlException.cpp' object='MySqlException.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MySqlException.o `test -f 'src/mysql/MySqlException.cpp' || echo '$(srcdir)/'`src/mysql/MySqlException.cpp
-
-MySqlException.obj: src/mysql/MySqlException.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MySqlException.obj -MD -MP -MF $(DEPDIR)/MySqlException.Tpo -c -o MySqlException.obj `if test -f 'src/mysql/MySqlException.cpp'; then $(CYGPATH_W) 'src/mysql/MySqlException.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/MySqlException.cpp'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/MySqlException.Tpo $(DEPDIR)/MySqlException.Po
-#	$(AM_V_CXX)source='src/mysql/MySqlException.cpp' object='MySqlException.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MySqlException.obj `if test -f 'src/mysql/MySqlException.cpp'; then $(CYGPATH_W) 'src/mysql/MySqlException.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/MySqlException.cpp'; fi`
-
-MySqlPreparedStatement.o: src/mysql/MySqlPreparedStatement.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MySqlPreparedStatement.o -MD -MP -MF $(DEPDIR)/MySqlPreparedStatement.Tpo -c -o MySqlPreparedStatement.o `test -f 'src/mysql/MySqlPreparedStatement.cpp' || echo '$(srcdir)/'`src/mysql/MySqlPreparedStatement.cpp
-	$(AM_V_at)$(am__mv) $(DEPDIR)/MySqlPreparedStatement.Tpo $(DEPDIR)/MySqlPreparedStatement.Po
-#	$(AM_V_CXX)source='src/mysql/MySqlPreparedStatement.cpp' object='MySqlPreparedStatement.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MySqlPreparedStatement.o `test -f 'src/mysql/MySqlPreparedStatement.cpp' || echo '$(srcdir)/'`src/mysql/MySqlPreparedStatement.cpp
-
-MySqlPreparedStatement.obj: src/mysql/MySqlPreparedStatement.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MySqlPreparedStatement.obj -MD -MP -MF $(DEPDIR)/MySqlPreparedStatement.Tpo -c -o MySqlPreparedStatement.obj `if test -f 'src/mysql/MySqlPreparedStatement.cpp'; then $(CYGPATH_W) 'src/mysql/MySqlPreparedStatement.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/MySqlPreparedStatement.cpp'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/MySqlPreparedStatement.Tpo $(DEPDIR)/MySqlPreparedStatement.Po
-#	$(AM_V_CXX)source='src/mysql/MySqlPreparedStatement.cpp' object='MySqlPreparedStatement.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MySqlPreparedStatement.obj `if test -f 'src/mysql/MySqlPreparedStatement.cpp'; then $(CYGPATH_W) 'src/mysql/MySqlPreparedStatement.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/MySqlPreparedStatement.cpp'; fi`
-
-OutputBinder.o: src/mysql/OutputBinder.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT OutputBinder.o -MD -MP -MF $(DEPDIR)/OutputBinder.Tpo -c -o OutputBinder.o `test -f 'src/mysql/OutputBinder.cpp' || echo '$(srcdir)/'`src/mysql/OutputBinder.cpp
-	$(AM_V_at)$(am__mv) $(DEPDIR)/OutputBinder.Tpo $(DEPDIR)/OutputBinder.Po
-#	$(AM_V_CXX)source='src/mysql/OutputBinder.cpp' object='OutputBinder.o' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o OutputBinder.o `test -f 'src/mysql/OutputBinder.cpp' || echo '$(srcdir)/'`src/mysql/OutputBinder.cpp
-
-OutputBinder.obj: src/mysql/OutputBinder.cpp
-	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT OutputBinder.obj -MD -MP -MF $(DEPDIR)/OutputBinder.Tpo -c -o OutputBinder.obj `if test -f 'src/mysql/OutputBinder.cpp'; then $(CYGPATH_W) 'src/mysql/OutputBinder.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/OutputBinder.cpp'; fi`
-	$(AM_V_at)$(am__mv) $(DEPDIR)/OutputBinder.Tpo $(DEPDIR)/OutputBinder.Po
-#	$(AM_V_CXX)source='src/mysql/OutputBinder.cpp' object='OutputBinder.obj' libtool=no \
-#	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) \
-#	$(AM_V_CXX_no)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o OutputBinder.obj `if test -f 'src/mysql/OutputBinder.cpp'; then $(CYGPATH_W) 'src/mysql/OutputBinder.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/OutputBinder.cpp'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique

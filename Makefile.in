@@ -76,7 +76,7 @@ POST_INSTALL = :
 NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
-bin_PROGRAMS = customer_credit_check$(EXEEXT)
+bin_PROGRAMS = redis_rest$(EXEEXT)
 subdir = .
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/configure $(am__configure_deps) depcomp \
@@ -92,11 +92,9 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_customer_credit_check_OBJECTS = main.$(OBJEXT) MySql.$(OBJEXT) \
-	MySqlException.$(OBJEXT) MySqlPreparedStatement.$(OBJEXT) \
-	OutputBinder.$(OBJEXT)
-customer_credit_check_OBJECTS = $(am_customer_credit_check_OBJECTS)
-customer_credit_check_DEPENDENCIES = lib/librestbed.a
+am_redis_rest_OBJECTS = main.$(OBJEXT)
+redis_rest_OBJECTS = $(am_redis_rest_OBJECTS)
+redis_rest_DEPENDENCIES = lib/librestbed.a
 AM_V_P = $(am__v_P_@AM_V@)
 am__v_P_ = $(am__v_P_@AM_DEFAULT_V@)
 am__v_P_0 = false
@@ -142,8 +140,8 @@ AM_V_CCLD = $(am__v_CCLD_@AM_V@)
 am__v_CCLD_ = $(am__v_CCLD_@AM_DEFAULT_V@)
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(customer_credit_check_SOURCES)
-DIST_SOURCES = $(customer_credit_check_SOURCES)
+SOURCES = $(redis_rest_SOURCES)
+DIST_SOURCES = $(redis_rest_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -280,8 +278,8 @@ top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 AUTOMAKE_OPTIONS = foreign
-customer_credit_check_SOURCES = src/curl_client.hpp src/client_http.hpp src/renesolalog.hpp src/serverResource.hpp src/main.cpp src/mysql/MySql.cpp src/mysql/MySqlException.cpp src/mysql/MySqlPreparedStatement.cpp src/mysql/OutputBinder.cpp
-customer_credit_check_LDADD = lib/librestbed.a
+redis_rest_SOURCES = src/curl_client.hpp src/client_http.hpp src/renesolalog.hpp src/serverResource.hpp src/main.cpp
+redis_rest_LDADD = lib/librestbed.a
 all: all-am
 
 .SUFFIXES:
@@ -363,9 +361,9 @@ uninstall-binPROGRAMS:
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
 
-customer_credit_check$(EXEEXT): $(customer_credit_check_OBJECTS) $(customer_credit_check_DEPENDENCIES) $(EXTRA_customer_credit_check_DEPENDENCIES) 
-	@rm -f customer_credit_check$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(customer_credit_check_OBJECTS) $(customer_credit_check_LDADD) $(LIBS)
+redis_rest$(EXEEXT): $(redis_rest_OBJECTS) $(redis_rest_DEPENDENCIES) $(EXTRA_redis_rest_DEPENDENCIES) 
+	@rm -f redis_rest$(EXEEXT)
+	$(AM_V_CXXLD)$(CXXLINK) $(redis_rest_OBJECTS) $(redis_rest_LDADD) $(LIBS)
 
 mostlyclean-compile:
 	-rm -f *.$(OBJEXT)
@@ -373,10 +371,6 @@ mostlyclean-compile:
 distclean-compile:
 	-rm -f *.tab.c
 
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MySql.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MySqlException.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/MySqlPreparedStatement.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/OutputBinder.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/main.Po@am__quote@
 
 .cpp.o:
@@ -406,62 +400,6 @@ main.obj: src/main.cpp
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/main.cpp' object='main.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o main.obj `if test -f 'src/main.cpp'; then $(CYGPATH_W) 'src/main.cpp'; else $(CYGPATH_W) '$(srcdir)/src/main.cpp'; fi`
-
-MySql.o: src/mysql/MySql.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MySql.o -MD -MP -MF $(DEPDIR)/MySql.Tpo -c -o MySql.o `test -f 'src/mysql/MySql.cpp' || echo '$(srcdir)/'`src/mysql/MySql.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/MySql.Tpo $(DEPDIR)/MySql.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/mysql/MySql.cpp' object='MySql.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MySql.o `test -f 'src/mysql/MySql.cpp' || echo '$(srcdir)/'`src/mysql/MySql.cpp
-
-MySql.obj: src/mysql/MySql.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MySql.obj -MD -MP -MF $(DEPDIR)/MySql.Tpo -c -o MySql.obj `if test -f 'src/mysql/MySql.cpp'; then $(CYGPATH_W) 'src/mysql/MySql.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/MySql.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/MySql.Tpo $(DEPDIR)/MySql.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/mysql/MySql.cpp' object='MySql.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MySql.obj `if test -f 'src/mysql/MySql.cpp'; then $(CYGPATH_W) 'src/mysql/MySql.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/MySql.cpp'; fi`
-
-MySqlException.o: src/mysql/MySqlException.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MySqlException.o -MD -MP -MF $(DEPDIR)/MySqlException.Tpo -c -o MySqlException.o `test -f 'src/mysql/MySqlException.cpp' || echo '$(srcdir)/'`src/mysql/MySqlException.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/MySqlException.Tpo $(DEPDIR)/MySqlException.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/mysql/MySqlException.cpp' object='MySqlException.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MySqlException.o `test -f 'src/mysql/MySqlException.cpp' || echo '$(srcdir)/'`src/mysql/MySqlException.cpp
-
-MySqlException.obj: src/mysql/MySqlException.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MySqlException.obj -MD -MP -MF $(DEPDIR)/MySqlException.Tpo -c -o MySqlException.obj `if test -f 'src/mysql/MySqlException.cpp'; then $(CYGPATH_W) 'src/mysql/MySqlException.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/MySqlException.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/MySqlException.Tpo $(DEPDIR)/MySqlException.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/mysql/MySqlException.cpp' object='MySqlException.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MySqlException.obj `if test -f 'src/mysql/MySqlException.cpp'; then $(CYGPATH_W) 'src/mysql/MySqlException.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/MySqlException.cpp'; fi`
-
-MySqlPreparedStatement.o: src/mysql/MySqlPreparedStatement.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MySqlPreparedStatement.o -MD -MP -MF $(DEPDIR)/MySqlPreparedStatement.Tpo -c -o MySqlPreparedStatement.o `test -f 'src/mysql/MySqlPreparedStatement.cpp' || echo '$(srcdir)/'`src/mysql/MySqlPreparedStatement.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/MySqlPreparedStatement.Tpo $(DEPDIR)/MySqlPreparedStatement.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/mysql/MySqlPreparedStatement.cpp' object='MySqlPreparedStatement.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MySqlPreparedStatement.o `test -f 'src/mysql/MySqlPreparedStatement.cpp' || echo '$(srcdir)/'`src/mysql/MySqlPreparedStatement.cpp
-
-MySqlPreparedStatement.obj: src/mysql/MySqlPreparedStatement.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT MySqlPreparedStatement.obj -MD -MP -MF $(DEPDIR)/MySqlPreparedStatement.Tpo -c -o MySqlPreparedStatement.obj `if test -f 'src/mysql/MySqlPreparedStatement.cpp'; then $(CYGPATH_W) 'src/mysql/MySqlPreparedStatement.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/MySqlPreparedStatement.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/MySqlPreparedStatement.Tpo $(DEPDIR)/MySqlPreparedStatement.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/mysql/MySqlPreparedStatement.cpp' object='MySqlPreparedStatement.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o MySqlPreparedStatement.obj `if test -f 'src/mysql/MySqlPreparedStatement.cpp'; then $(CYGPATH_W) 'src/mysql/MySqlPreparedStatement.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/MySqlPreparedStatement.cpp'; fi`
-
-OutputBinder.o: src/mysql/OutputBinder.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT OutputBinder.o -MD -MP -MF $(DEPDIR)/OutputBinder.Tpo -c -o OutputBinder.o `test -f 'src/mysql/OutputBinder.cpp' || echo '$(srcdir)/'`src/mysql/OutputBinder.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/OutputBinder.Tpo $(DEPDIR)/OutputBinder.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/mysql/OutputBinder.cpp' object='OutputBinder.o' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o OutputBinder.o `test -f 'src/mysql/OutputBinder.cpp' || echo '$(srcdir)/'`src/mysql/OutputBinder.cpp
-
-OutputBinder.obj: src/mysql/OutputBinder.cpp
-@am__fastdepCXX_TRUE@	$(AM_V_CXX)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -MT OutputBinder.obj -MD -MP -MF $(DEPDIR)/OutputBinder.Tpo -c -o OutputBinder.obj `if test -f 'src/mysql/OutputBinder.cpp'; then $(CYGPATH_W) 'src/mysql/OutputBinder.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/OutputBinder.cpp'; fi`
-@am__fastdepCXX_TRUE@	$(AM_V_at)$(am__mv) $(DEPDIR)/OutputBinder.Tpo $(DEPDIR)/OutputBinder.Po
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	$(AM_V_CXX)source='src/mysql/OutputBinder.cpp' object='OutputBinder.obj' libtool=no @AMDEPBACKSLASH@
-@AMDEP_TRUE@@am__fastdepCXX_FALSE@	DEPDIR=$(DEPDIR) $(CXXDEPMODE) $(depcomp) @AMDEPBACKSLASH@
-@am__fastdepCXX_FALSE@	$(AM_V_CXX@am__nodep@)$(CXX) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS) -c -o OutputBinder.obj `if test -f 'src/mysql/OutputBinder.cpp'; then $(CYGPATH_W) 'src/mysql/OutputBinder.cpp'; else $(CYGPATH_W) '$(srcdir)/src/mysql/OutputBinder.cpp'; fi`
 
 ID: $(am__tagged_files)
 	$(am__define_uniq_tagged_files); mkid -fID $$unique
