@@ -1,0 +1,45 @@
+public enum ErrorCodeEnum {
+
+ SUCCESS(200, "SUCCESS", "处理成功"),
+
+ / COMMON（公共错误）, errorcode range：1000 ~ -1000 /
+ COMMUNICATION_NOT_ESTABLISHED(5, "socket communication not established", "socket连接尚未建立"),
+ COMMUNICATION_DATA_PACKAGE_SENDED(10, "socket communication data package sended", "socket数据报已发送"),
+ COMMUNICATION_DATA_PACKAGE_RECEIVED(15, "socket communication data package received", "socket数据报已收到"),
+ COMMUNICATION_COMPLETE(20, "socket communication complete", "通讯已完成"),
+
+ COMMUNICATION_CLOSED_UNEXPECTED(-5, "socket connection closed unexpected", "socket通讯意外关闭"),
+ COMMUNICATION_EXCEPTION(-10, "socket communication exception", "socket通讯异常"),
+ COMMUNICATION_BUILD_FAILED(-15, "build socket connection failed", "建立socket连接失败"),
+ COMMUNICATION_ROUND_TRIP_TIMEOUT(-20, "socket data package round-trip timeout", "socket数据报收发超时"),
+ COMMUNICATION_RECEIVED_DATA_PACKAGE_WRONG_FORMAT(-25, "receive data package of wrong format", "接收到的数据包格式错误"),
+ COMMUNICATION_DESTROY_FAILED(-30, "socket connection destroy failed", "socket连接销毁失败"),
+ COMMUNICATION_WRONG_SOCKET_STATE(-35, "wrong socket status", "错误的socket会话状态"),
+
+    SYSTEM_CONFIG_MODIFY_EXCEPTION(-100, "system config load error", "系统参数加载错误"),
+ UNRECOGNIZED_INFORMATION(-110, "unrecognized information", "无法识别信息"),
+ 
+ / DP（数据库异步代理模块）, error code range：-1001 ~ -2000 /
+ //TODO ...
+
+ / WF（工作流引擎模块）, error code range：-2001 ~ -3000 /
+ //TODO ... 
+
+ / CP（客户门户）, error code range：-3001 ~ -4000 /
+    //TODO ...
+
+ / EP（员工门户）, error code range：-4001 ~ -5000 /
+    //TODO ...
+
+ / MF（主数据管理模块）, error code range：-5001 ~ -6000 /
+    //TODO ...
+
+ / CM（客户管理模块）, error code range：-6001 ~ -7000 /
+ //TODO ...
+
+ / SM（销售管理模块）, error code range：-7001 ~ -8000 /
+ //TODO ...
+ 
+ / CACHE（缓存服务模块）, error code range：-8001 ~ -9000 /
+ //TODO ...
+ ;

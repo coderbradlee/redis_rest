@@ -1,0 +1,186 @@
+
+1、定义宏确定是否开启Daemon模式
+2、添加默认页
+3、make install
+4、动态添加模块 boost plugin
+5、日志删除能否自建
+6、日志开关
+
+curl -X POST http://localhost:8088/apollo -d "{\"operation\":\"QUERY_SESSION\",\"requestData\":[{\"sessionId\":\"J57B5D55ERJHZXDPL1R2\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-06-02 11:51:13\"}"
+
+
+
+//JSON_READ_OR_WRITE_ERROR(-8010, "json read or write error", "json 格式问题")
+
+//CREATE_SESSION_UNKNOWN_ERROR(-8020, "create session unknown error", "创建session时未知的错误")
+
+//CREATE_SESSION_KEY_EXIST(-8025, "key already exist when create session", "创建session时key已经存在")
+
+//ADD_USERID_UNDER_SESSION_UNKNOWN_ERROR(-8030, "add userid unknown error", "增加userid时未知的错误")
+
+//ADD_USERID_KEY_NOT_EXIST(-8035, "key does not exist when add userid", "增加userid时key不存在")
+
+//DELETE_SESSION_UNKNOWN_ERROR(-8040, "del session unknown error", "删除session时未知的错误")
+
+//DELETE_SESSION_KEY_NOT_EXIST(-8045, "key does not exist when del session", "删除session时key不存在")
+
+//QUERY_SESSION_UNKNOWN_ERROR(-8050, "unknown error when query session ", "查询session时未知的错误")
+
+//QUERY_SESSION_KEY_NOT_EXIST(-8055, "key does not exist when query session", "查询session时key不存在")
+
+//UPDATE_SESSION_DEADLINE_UNKNOWN_ERROR(-8060, "update session unknown error", "更新session时未知的错误")
+
+//UPDATE_SESSION_DEADLINE_KEY_NOT_EXIST(-8065, "key does not exist when update session", "更新session时key不存在")
+
+//BATCH_CREATE_AREAS_KEY_EXIST(-8070, "key already exists when batch create areas", "批量增加地区key时key已经存在")
+
+//BATCH_CREATE_AREAS_UNKNOWN_ERROR(-8080, "unknown error when batch create areas", "批量增加地区key时未知错误")
+
+//UNKNOWN_ERROR(-8085, "unknown error", "未知错误")
+
+
+
+
+
+
+-----------------------------------
+t_function (功能节点表)
+-----------------------------------
+function_id(功能节点ID), char(20), NOT NULL, PK
+code(编码), varchar(50), NOT NULL /*编码层次：模块组->模块->一级功能节点组->...->N级功能节点组->功能节点->功能操作(按钮,菜单,链接)*/ 
+name(名称), varchar(200), NOT NULL
+description(描述), varchar(500)
+up_level_function_id(上级节点ID), char(20), FK
+level(级次), smallint, NOT NULL
+type(类型), smallint, NOT NULL /*0:模块组|ModuleGroup;1:模块|Module;2:功能节点组|FunctionGroup;3:功能节点|Function;4:操作|Operation*/
+note(备注), varchar(2000)
+-----------------------------------
+初始数据倒入：Y
+多语言：Y
+
+
+BATCH_CREATE_SEAPORT
+LIST_SEAPORT_BY_KEYS
+LIST_SEAPORT_BY_KEYWORDS
+
+BATCH_CREATE_WAREHOUSE
+LIST_WAREHOUSE_BY_KEYS
+LIST_WAREHOUSE_BY_KEYWORDS
+
+BATCH_CREATE_AIRPORT
+LIST_AIRPORT_BY_KEYS
+LIST_AIRPORT_BY_KEYWORDS
+
+BATCH_CREATE_CURRENCY
+LIST_CURRENCY_BY_KEYS
+LIST_CURRENCY_BY_KEYWORDS
+
+BATCH_CREATE_COUNTRY
+LIST_COUNTRY_BY_KEYS
+LIST_COUNTRY_BY_KEYWORDS
+
+BATCH_CREATE_REGION
+LIST_REGION_BY_KEYS
+LIST_REGION_BY_KEYWORDS
+
+BATCH_CREATE_STATE
+LIST_STATE_BY_KEYS
+LIST_STATE_BY_KEYWORDS
+
+BATCH_CREATE_CITY
+LIST_CITY_BY_KEYS
+LIST_CITY_BY_KEYWORDS
+
+BATCH_CREATE_UOM
+LIST_UOM_BY_KEYS
+LIST_UOM_BY_KEYWORDS
+
+BATCH_CREATE_EXCHANGE_RATES
+LIST_EXCHANGE_RATES_BY_KEYS
+LIST_EXCHANGE_RATES_BY_KEYWORDS
+
+BATCH_CREATE_TAX_SCHEDULES
+LIST_TAX_SCHEDULES_BY_KEYS
+LIST_TAX_SCHEDULES_BY_KEYWORDS
+
+BATCH_CREATE_TAX_FILES
+LIST_TAX_FILES_BY_KEYS
+LIST_TAX_FILES_BY_KEYWORDS
+
+
+
+
+"{\"operation\":\"LIST_SEAPORT_BY_KEYWORDS\",\"requestData\":[{\"keyword\":\"id\",\"value\":\"APOLLO-ALL\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+
+curl -X POST http://localhost:8080/apollo -d "{\"operation\":\"LIST_WAREHOUSE_BY_KEYS\",\"requestData\":[{\"id\":\"12345678901234567890\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_WAREHOUSE_BY_KEYWORDS\",   \"requestData\":[{      \"keyword\":\"id\",\"value\":\"APOLLO-ALL\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"BATCH_CREATE_AIRPORT\",   \"requestData\":[{\"id\":\"12345678901234567890\",   \"airportCode\":\"12345678901234567890\",   \"fullName\":\"sdfghjk\",   \"shortName\":\"dfghjk\",   \"cityId\": \"12345678901234567890\",   \"status\":0,   \"dr\":0,   \"dataVersion\":1},{\"id\":\"09876543210987654321\",   \"airportCode\":\"09876543210987654321\",   \"fullName\":\"sdfa\",   \"shortName\":\"jhgfd\",   \"cityId\": \"09876543210987654321\",   \"status\":0,   \"dr\":0,   \"dataVersion\":1}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_AIRPORT_BY_KEYS\",   \"requestData\":[{      \"id\":\"12345678901234567890\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_AIRPORT_BY_KEYWORDS\",   \"requestData\":[{      \"keyword\":\"id\",\"value\":\"APOLLO-ALL\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"BATCH_CREATE_CURRENCY\",   \"requestData\":[{\"id\":\"12345678901234567890\",   \"code\":\"USD\",   \"fullName\":\"U.S. Dollar\",   \"shortName\":\"U.S. Dollar\",   \"symbol\": \"$\",   \"decimalDigits\":2,\"roundRule\":2,   \"dr\":0,   \"dataVersion\":1},{\"id\":\"09876543210987654321\",   \"code\":\"CNY\",   \"fullName\":\"Chinese Renminbi\",   \"shortName\":\"Chinese Renminbi\",   \"symbol\": \"￥\",   \"decimalDigits\":2,\"roundRule\":2,   \"dr\":0,   \"dataVersion\":1}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_CURRENCY_BY_KEYS\",   \"requestData\":[{      \"id\":\"12345678901234567890\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_CURRENCY_BY_KEYWORDS\",   \"requestData\":[{      \"keyword\":\"id\",\"value\":\"APOLLO-ALL\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"BATCH_CREATE_COUNTRY\",    \"requestData\":[{\"id\":\"12345678901234567890\",   \"countryCode\":\"12345678901234567890\",   \"fullName\":\"America\",   \"shortName\":\"America\",   \"alphabetShortName\": \"America\",   \"areaId\":\"09876543210987654321\",   \"dr\":0,   \"dataVersion\":1},{\"id\":\"098765433210987654321\",   \"countryCode\":\"098765433210987654321\",   \"fullName\":\"Mexico\",   \"shortName\":\"Mexico\",   \"alphabetShortName\": \"Mexico\",   \"areaId\":\"12345678901234567890\",   \"dr\":0,   \"dataVersion\":1}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_COUNTRY_BY_KEYS\",   \"requestData\":[{      \"id\":\"12345678901234567890\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_COUNTRY_BY_KEYWORDS\",    \"requestData\":[{      \"keyword\":\"id\",\"value\":\"APOLLO-ALL\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"BATCH_CREATE_REGION\",    \"requestData\":[{\"id\":\"12345678901234567890\",   \"regionCode\":\"IT-01\",   \"fullName\":\"Umbria\",   \"shortName\":\"Umbria\",   \"countryId\": \"09876543210987654321\",\"dr\":0,\"dataVersion\":1},{\"id\":\"09876543210987654321\",   \"regionCode\":\"IT-02\",   \"fullName\":\"Sulawesi\",   \"shortName\":\"Sulawesi\",   \"countryId\": \"12345678901234567890\",\"dr\":0,\"dataVersion\":1}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{	   \"operation\":\"LIST_REGION_BY_KEYS\",  \"requestData\":[{\"id\":\"12345678901234567890\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_REGION_BY_KEYWORDS\",    \"requestData\":[{      \"keyword\":\"id\",\"value\":\"APOLLO-ALL\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"BATCH_CREATE_STATE\",    \"requestData\":[{\"id\":\"12345678901234567890\",   \"stateCode\":\"IT-VC\",   \"fullName\":\"Vercelli\",   \"shortName\":\"Vercelli\",   \"countryId\": \"12345678901234567890\",   \"regionId\": \"12345678901234567890\",   \"dr\":0,   \"dataVersion\":1},{\"id\":\"09876543210987654321\",   \"stateCode\":\"IT-MO\",   \"fullName\":\"Modena\",   \"shortName\":\"Modena\",   \"countryId\": \"09876543210987654321\",   \"regionId\": \"09876543210987654321\",   \"dr\":0,   \"dataVersion\":1}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{	   \"operation\":\"LIST_STATE_BY_KEYS\",   \"requestData\":[{      \"id\":\"12345678901234567890\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_STATE_BY_KEYWORDS\",    \"requestData\":[{      \"keyword\":\"id\",\"value\":\"APOLLO-ALL\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"BATCH_CREATE_CITY\",   \"requestData\":[{\"id\":\"12345678901234567890\",   \"cityCode\":\"BEIJING\",   \"fullName\":\"BEIJING\",   \"shortName\":\"BEIJING\",   \"stateId\": \"12345678901234567890\",   \"dr\":0,   \"dataVersion\":1},{\"id\":\"09876543210987654321\",   \"cityCode\":\"SHANGHAI\",   \"fullName\":\"SHANGHAI\",   \"shortName\":\"SHANGHAI\",   \"stateId\": \"09876543210987654321\",   \"dr\":0,   \"dataVersion\":1}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_CITY_BY_KEYS\",   \"requestData\":[{      \"id\":\"12345678901234567890\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_CITY_BY_KEYWORDS\",   \"requestData\":[{      \"keyword\":\"id\",\"value\":\"APOLLO-ALL\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"BATCH_CREATE_UOM\",   \"requestData\":[{\"id\":\"12345678901234567890\",   \"code\":\"1\",   \"name\":\"Bottle\",   \"symbol\":\"BL\",   \"type\":0,   \"note\":\"计量单位\",   \"dr\":0,   \"dataVersion\":1},{\"id\":\"09876543210987654321\",   \"code\":\"2\",   \"name\":\"set\",   \"symbol\":\"SET\",   \"type\":0,   \"note\":\"单位\",   \"dr\":0,   \"dataVersion\":1}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{		   \"operation\":\"LIST_UOM_BY_KEYS\",    \"requestData\":[{      \"id\":\"12345678901234567890\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_UOM_BY_KEYWORDS\",   \"requestData\":[{      \"keyword\":\"id\",\"value\":\"APOLLO-ALL\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"BATCH_CREATE_EXCHANGE_RATES\",   \"requestData\":[{      \"id\":\"1234567890\",      \"sourceCurrencyId\":\"2345678901\",      \"targetCurrencyId\":\"3456789012\",      \"calculationMethod\":0,      \"decimalDigits\":8,     \"matchMethod\":1,      \"dailyExchangeRateChildren\":[{         \"dailyExchangeRateId\":\"4567890123\",         \"year\":\"2015\",         \"month\":\"05\",        \"day\":\"28\",         \"exchangeRatio\":5.63212,\"dr\":0,\"dataVersion\":1}],\"periodAdjustmentExchangeRateChildren\":[{   \"periodAdjustExchangeRateId\":\"5678901234\",   \"year\":\"2015\",   \"month\":\"05\",   \"exchangeRatio\":6.32145,\"dr\":0,\"dataVersion\":1}],   \"dr\":0,   \"dataVersion\":1},{      \"id\":\"2\",      \"sourceCurrencyId\":\"2345678901\",      \"targetCurrencyId\":\"3456789012\",      \"calculationMethod\":0,      \"decimalDigits\":8,     \"matchMethod\":1,      \"dailyExchangeRateChildren\":[{         \"dailyExchangeRateId\":\"4567890123\",         \"year\":\"2015\",         \"month\":\"05\",        \"day\":\"28\",         \"exchangeRatio\":5.63212,\"dr\":0,\"dataVersion\":1}],\"periodAdjustmentExchangeRateChildren\":[{   \"periodAdjustExchangeRateId\":\"5678901234\",   \"year\":\"2015\",   \"month\":\"05\",   \"exchangeRatio\":6.32145,\"dr\":0,\"dataVersion\":1}],   \"dr\":0,   \"dataVersion\":1}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_EXCHANGE_RATES_BY_KEYS\",   \"requestData\":[{      \"id\":\"1234567890\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_EXCHANGE_RATES_BY_KEYWORDS\",   \"requestData\":[{      \"keyword\":\"id\",\"value\":\"APOLLO-ALL\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"BATCH_CREATE_TAX_SCHEDULES\",   \"requestData\":[{      \"id\":\"1234567890\",      \"code\":\"123\",      \"description\":\"abcdef\",      \"taxFileChildren\":[{         \"taxId\":\"4567890123\",         \"code\":\"22\",         \"description\":\"增值税\",        \"levyingBureau\":\"上海市长宁区财税局\",         \"deductible\":1,         \"isSuperposedTax\":1,         \"calculationMethod\":0,         \"taxRate\":0.17,         \"taxAmount\":0.0,\"dr\":0,\"dataVersion\":1}],   \"dr\":0,   \"dataVersion\":1},{      \"id\":\"2\",      \"code\":\"123\",      \"description\":\"abcdef\",      \"taxFileChildren\":[{         \"taxId\":\"4567890123\",         \"code\":\"22\",         \"description\":\"增值税\",        \"levyingBureau\":\"上海市长宁区财税局\",         \"deductible\":1,         \"isSuperposedTax\":1,         \"calculationMethod\":0,         \"taxRate\":0.17,         \"taxAmount\":0.0,\"dr\":0,\"dataVersion\":1}],   \"dr\":0,   \"dataVersion\":1}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_TAX_SCHEDULES_BY_KEYS\",   \"requestData\":[{      \"id\":\"1234567890\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_TAX_SCHEDULES_BY_KEYWORDS\",   \"requestData\":[{      \"keyword\":\"id\",\"value\":\"APOLLO-ALL\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{\"operation\":\"BATCH_CREATE_TAX_FILES\",   \"requestData\":[{\"id\":\"4567890123\",\"code\":\"22\",\"description\":\"增\",\"levyingBureau\":\"上\",\"deductible\":1,\"isSuperposedTax\":1,\"calculationMethod\":0,\"taxRate\":0.17,\"taxAmount\":0.0,      \"taxSheduleParents\":[{\"taxScheduleId\":\"1234567890\",\"code\":\"123\",\"description\":\"abcdef\",\"dr\":0,\"dataVersion\":1}],   \"dr\":0,   \"dataVersion\":1},{\"id\":\"22\",\"code\":\"22\",\"description\":\"增\",\"levyingBureau\":\"上\",\"deductible\":1,\"isSuperposedTax\":1,\"calculationMethod\":0,\"taxRate\":0.17,\"taxAmount\":0.0,      \"taxSheduleParents\":[{\"taxScheduleId\":\"1234567890\",\"code\":\"123\",\"description\":\"abcdef\",\"dr\":0,\"dataVersion\":1}],   \"dr\":0,   \"dataVersion\":1}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_TAX_FILES_BY_KEYS\",   \"requestData\":[{      \"id\":\"4567890123\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+
+curl -X POST http://localhost:8080/apollo -d "{   \"operation\":\"LIST_TAX_FILES_BY_KEYWORDS\",   \"requestData\":[{      \"keyword\":\"id\",\"value\":\"APOLLO-ALL\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+curl -X POST http://localhost:8080/apollo -d "{\"operation\":\"SET_USER_ROLE\",\"requestData\":[{\"systemAccountId\" :\"0\",\"value\":{\"currentRoleId\":\"01234567890123456789\"}},{\"systemAccountId\" :\"2\",\"value\":{\"currentRoleId\":\"01234567890123456789\"}}],	\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"
+
+
+curl -X POST http://localhost:8080/apollo -d "{\"operation\":\"GET_USER_ROLE\",\"requestData\":[{\"systemAccountId\":\"0\"},{\"systemAccountId\":\"3\"}],\"requestor\":\"apollo-employee-portal\",\"requestTime\":\"2015-05-25 08:00:00\"}"

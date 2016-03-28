@@ -1,0 +1,14 @@
+﻿
+-----------------------------------
+t_area（区域表）
+-----------------------------------
+area_id(区域id), char(20), NOT NULL, PK
+area_code(区域编码), varchar(50), NOT NULL, UNIQUE
+parent_area_code(上级区域编码), varchar(50)
+full_name(区域全名), varchar(200), NOT NULL
+short_name(区域简称), varchar(100)
+-----------------------------------
+初始数据倒入：Y
+多语言：Y
+
+set t_area:1111 "{area_id:leto,area_code:dune,parent_area_code:}"

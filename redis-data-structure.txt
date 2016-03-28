@@ -1,0 +1,45 @@
+
+
+
+
+
+
+
+1、string
+set users:leto "{name:leto,planet:dune,likes:[spice]}"
+
+2、hash
+hmset users:goku race saiyan age 25
+//设置race是saiyan，age是25
+hmget users:goku race age
+//获得race和age
+
+3、lists
+
+4、sets
+sadd friends:leto paul chani jessica susan
+sismember friends:leto paul
+//用于存放枚举类型的值，并可以很容易判断哪个值是否属于此枚举
+
+5、sorted sets
+zadd friends:duncan 10 paul 20 chani 4 jessica 8 susan
+zcount friends:duncan 0 10
+//可以统计某个分值空间里有多少值,上例返回值为3
+
+zrevrank friends:duncan chani 
+//获得chani的排序位置，返回值为0
+
+****************************************************************
+对于json数据存储查询比较合适的例子：
+
+set users:9001 "{id:9001,email:leto@dune.com,name:leto}"
+hset users:lookup:email leto@dune.com 9001
+//设置email和id的关联
+
+hget users:lookup:email leto@dune.com
+get users:9001
+
+*********************************************************
+pipelining //批量执行命令
+transaction //类似于数据库中的事务
+另外可以设置key的过期时间，这可以用于session的过期时间

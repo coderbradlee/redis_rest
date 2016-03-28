@@ -1,0 +1,16 @@
+[Unit]
+Description=redis cache
+After=network.target remote-fs.target nss-lookup.target redis5.service
+
+[Service]
+Type=forking
+EnvironmentFile=/root/redisRenesola-cluster-debug/config.ini
+ExecStart=/root/redisRenesola-cluster-debug/apolloCacheDaemon
+Environment="XDG_RUNTIME_DIR=/root/redisRenesola-cluster-debug/;LD_LIBRARY_PATH=%t"
+WorkingDirectory=/root/redisRenesola-cluster-debug/
+PrivateTmp=true
+Restart=on-failure
+RestartSec=20
+User=root
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,1 @@
+2: [notification] [2015-Jun-16 17:07:51.531551] [0x00007f0e7625d700] - request: POST /apollo {"operation":"QUERY_SESSION","requestData":[{"sessionId":"J5HIBK0Y35PXYWPN7S6N"}],"requestor":"apollo-employee-portal","requestTime":"2015-06-16 17:09:02"}
