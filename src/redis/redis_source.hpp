@@ -494,7 +494,7 @@ void defaultindex(HttpServer& server)
          boost_log->get_initsink()->flush();
     }
 }
-void serverRedisResource(HttpServer& server,string redisHost,string redisPort,string redisPassword,string url)
+void serverRedisResource(HttpServer& server,string redisHost,unsigned int redisPort,string redisPassword,string url)
 {
 	try
 	{
