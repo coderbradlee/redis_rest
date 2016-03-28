@@ -1,5 +1,5 @@
-#ifndef SERVER_RESOURCE_HPP
-#define	SERVER_RESOURCE_HPP
+#ifndef REDIS_RESOURCE_HPP
+#define	REDIS__RESOURCE_HPP
 #define BOOST_SPIRIT_THREADSAFE
 
 #include "renesolalog.h"
