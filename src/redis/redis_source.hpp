@@ -432,7 +432,68 @@ int apollo(HttpServer& server,string url)
 		  return -1;
 	}
 }
+void defaultindex(HttpServer& server)
+{
+    try
+    {
+        std::lock_guard<std::mutex> locker(lockRedis);
+         server.default_resource["GET"]=[](HttpServer::Response& response, std::shared_ptr<HttpServer::Request> request) {
+        string filename="web";
+        
+        string path=request->path;
+        
+        //Replace all ".." with "." (so we can't leave the web-directory)
+        size_t pos;
+        while((pos=path.find(".."))!=string::npos) {
+            path.erase(pos, 1);
+        }
+        
+        filename+=path;
+        ifstream ifs;
+        //A simple platform-independent file-or-directory check do not exist, but this works in most of the cases:
+        if(filename.find('.')==string::npos) {
+            if(filename[filename.length()-1]!='/')
+                filename+='/';
+            filename+="index.html";
+        }
+        ifs.open(filename, ifstream::in);
+        
+        if(ifs) {
+            ifs.seekg(0, ios::end);
+            size_t length=ifs.tellg();
+            
+            ifs.seekg(0, ios::beg);
 
+            response << "HTTP/1.1 200 OK\r\nContent-Length: " << length << "\r\n\r\n";
+            
+            //read and send 128 KB at a time if file-size>buffer_size
+            size_t buffer_size=131072;
+            if(length>buffer_size) {
+                vector<char> buffer(buffer_size);
+                size_t read_length;
+                while((read_length=ifs.read(&buffer[0], buffer_size).gcount())>0) {
+                    response.stream.write(&buffer[0], read_length);
+                    response << HttpServer::flush;
+                }
+            }
+            else
+                response << ifs.rdbuf();
+
+            ifs.close();
+        }
+        else {
+            string content="Could not open file "+filename;
+            response << "HTTP/1.1 400 Bad Request\r\nContent-Length: " << content.length() << "\r\n\r\n" << content;
+        }
+    };
+
+    }
+    catch(exception& e) 
+    {
+          BOOST_LOG_SEV(slg, severity_level::error) <<__LINE__<<":"<<e.what();
+         boost_log->get_initsink()->flush();
+    }
+}
 void serverRedisResource(HttpServer& server,string redisHost,string redisPort,string redisPassword,string url)
 {
 	try
