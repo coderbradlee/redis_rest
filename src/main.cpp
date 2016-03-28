@@ -7,7 +7,7 @@
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/any.hpp>
 #include "orderbot.hpp"
-#include "credit_ontime.hpp"
+
 #define BOOST_DATE_TIME_SOURCE
 //#include "credit_ontime.hpp"
 
@@ -19,14 +19,6 @@ int main()
 	try
 	{
 		
-		{
-			boost::timer::cpu_timer pass;
-			pass.start();
-			credit_ontime test;
-			//test.start_update();
-
-			//std::cout << "now time elapsed:" << pass.format(6) << std::endl;
-		}
 		{
 			boost::timer::cpu_timer pass;
 			pass.start();
