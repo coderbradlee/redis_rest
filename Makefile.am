@@ -2,8 +2,7 @@ AUTOMAKE_OPTIONS=foreign
 
 SUBDIRS=src/redis
 libredispp.a-local:
-	g++ -std=c++11 -g -O3 -Isrc $(EXTRA_CXXFLAGS) -Werror -c src/redispp.cpp
-	ar cr libredispp.a redispp.o
+	@echo make libredispp.a
 
 bin_PROGRAMS=redis_rest
 
