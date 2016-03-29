@@ -493,7 +493,7 @@ void serverRedisResource(HttpServer& server,string redisHost,unsigned int redisP
 		//init redis connection pool
 
 		 cluster_p = HiredisCommand<ThreadPoolCluster>::createCluster( redisHost.c_str(),boost::lexical_cast<int>(redisPort));
-
+		 cout<<__FILE__<<":"<<__LINE__<<endl;
 		apollo(server,url);
 		defaultindex(server);
 	}
