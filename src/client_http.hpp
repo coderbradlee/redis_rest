@@ -62,7 +62,7 @@ namespace SimpleWeb
 			if (auth.length() > 0)
 			{
 				string base64_user_pass;
-				if (SimpleWeb::Base64Encode(auth, &base64_user_pass))
+				if (Base64Encode(auth, &base64_user_pass))
 					write_stream << "Authorization:Basic " << base64_user_pass << "\r\n";
 			}
 			

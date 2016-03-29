@@ -246,7 +246,7 @@ private:
 		bool auth(std::shared_ptr<HttpServer::Request> request,const string& user_pass)
 	{
 		string encode_user_pass;
-		if (!SimpleWeb::Base64Encode(user_pass, &encode_user_pass))
+		if (!Base64Encode(user_pass, &encode_user_pass))
 			return false;
 		for (auto& h : request->header)
 		{
