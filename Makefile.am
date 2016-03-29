@@ -1,8 +1,6 @@
 AUTOMAKE_OPTIONS=foreign
 
 SUBDIRS=src/redis
-libredispp.a-local:
-	@echo make libredispp.a
 
 bin_PROGRAMS=redis_rest
 
