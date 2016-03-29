@@ -8,7 +8,7 @@ AC_CONFIG_SRCDIR([src/main.cpp])
 AM_INIT_AUTOMAKE
 # Checks for programs.
 AM_EXTRA_RECURSIVE_TARGETS([libredispp.a])
-AC_CONFIG_FILES([Makefile src/Makefile src/redis/Makefile])
+AC_CONFIG_FILES([Makefile src/redis/Makefile])
 AC_PROG_CXX
 AC_PROG_CC
 
