@@ -26,8 +26,8 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#ifndef __libredisCluster__command__
-#define __libredisCluster__command__
+#ifndef __hirediscommand__command__
+#define __hirediscommand__command__
 
 #include <iostream>
 #include "cluster.h"
