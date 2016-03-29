@@ -1,5 +1,5 @@
 #ifndef REDIS_RESOURCE_HPP
-#define	REDIS__RESOURCE_HPP
+#define	REDIS_RESOURCE_HPP
 #define BOOST_SPIRIT_THREADSAFE
 
 #include "renesolalog.hpp"
