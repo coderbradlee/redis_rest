@@ -1,4 +1,4 @@
 
 noinst_LIBRARIES=libredispp.a
 
-libredispp.a_SOURCES=redispp.cpp
+libredispp_a_SOURCES=redispp.cpp
