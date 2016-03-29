@@ -214,7 +214,7 @@ namespace SimpleWeb
 				
                 boost::asio::ip::tcp::resolver::query query(host, std::to_string(port));
                 boost::asio::connect(*socket, asio_resolver.resolve(query));
-				cout << __LINE__ << endl;
+				///cout << __LINE__ << endl;
                 boost::asio::ip::tcp::no_delay option(true);
                 socket->set_option(option);
                 
