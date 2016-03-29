@@ -343,10 +343,10 @@ int apollo(HttpServer& server,string url)
 {
 	try
 	{
-	//set t_function:A1 "{\"function_id\":\"A1\",\"code\":\"a1\",\"name\":\"a1name\",\"description\":\"a1descrip\",\"up_level_function_id\":null,\"level\":1,\"type\":1,\"note\":\"Alibaba\",\"dr\":0,\"data_version\":1}"
+		cout<<__FILE__<<":"<<__LINE__<<endl;
     server.resource["^/"+url+"$"]["POST"]=[](HttpServer::Response& response, std::shared_ptr<HttpServer::Request> request) {
         try {
-        	cout<<__FILE__<<":"<<__LINE__<<endl;
+
             ptree pt;
 			////cout<<__LINE__<<endl;
 		    read_json(request->content, pt);
