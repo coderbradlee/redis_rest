@@ -343,7 +343,7 @@ int apollo(HttpServer& server,string url)
 {
 	try
 	{
-		cout<<__FILE__<<":"<<__LINE__<<endl;
+		cout<<__FILE__<<":"<<__LINE__<<":"<<url<<endl;
     server.resource["^/"+url+"$"]["POST"]=[](HttpServer::Response& response, std::shared_ptr<HttpServer::Request> request) {
         try {
 
