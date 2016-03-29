@@ -201,8 +201,8 @@ private:
 
 typedef Cluster<redisContext, ThreadedPool<redisContext> > ThreadPoolCluster;
 
-// volatile int cnt = 0;
-// std::mutex lockRedis;
+volatile int cnt = 0;
+std::mutex lockRedis;
 
 //set global variable value ThreadPoolCluster::ptr_t cluster_p;，set value through timer
 ThreadPoolCluster::ptr_t cluster_p;

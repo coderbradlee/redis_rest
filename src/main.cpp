@@ -33,12 +33,10 @@ int main()
 	this_thread::sleep_for(chrono::seconds(3));
 	HttpClient client("localhost:8888");
     
-  { string json="{
-				\"operation\": \"LIST_TRADETERM_BY_KEYWORDS\",\
+  { string json="{\"operation\": \"LIST_TRADETERM_BY_KEYWORDS\",\
 				\"requestData\": [ {\
 				\"keyword\":\"id\",\
-				\"value\":\"APOLLO-ALL\"\
-								}],\
+				\"value\":\"APOLLO-ALL\"}],\
 				\"requestor\": \"apollo-employee-portal\",\
 				\"requestTime\": \"2015-05-25 08:00:00\"\
 				}";
