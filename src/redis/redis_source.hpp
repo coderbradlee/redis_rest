@@ -245,7 +245,7 @@ string GENERAL_LIST_BY_KEYWORDS(const ptree& pt,string keyTitle,string operation
 		string tempkey=keyTitle+":*";
 		//cout<<tempkey<<endl;
 		redisReply* reply;
-		HiredisCommand<ThreadPoolCluster>::Command( cluster_p,tempkey.c_str(),"exists %s", tempkey.c_str());
+		//HiredisCommand<ThreadPoolCluster>::Command( cluster_p,tempkey.c_str(),"exists %s", tempkey.c_str());
 		//执行此命令可以将node转向到含有此key的node
 		////cout<<__LINE__<<":"<<reply->type<<endl;
 		////cout<<__LINE__<<":"<<reply->integer<<endl;

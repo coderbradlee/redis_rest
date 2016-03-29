@@ -206,62 +206,62 @@ std::mutex lockRedis;
 
 //set global variable value ThreadPoolCluster::ptr_t cluster_p;，set value through timer
 ThreadPoolCluster::ptr_t cluster_p;
-bool cluster_pool_insert(const string& key,const string& value)
-{
-    redisReply * reply;
-    // use defined custom cluster as template parameter for HiredisCommand here
-    reply = static_cast<redisReply*>( HiredisCommand<ThreadPoolCluster>::Command( cluster_p, key, "SET %s %s", key, value ) );
+// bool cluster_pool_insert(const string& key,const string& value)
+// {
+//     redisReply * reply;
+//     // use defined custom cluster as template parameter for HiredisCommand here
+//     reply = static_cast<redisReply*>( HiredisCommand<ThreadPoolCluster>::Command( cluster_p, key, "SET %s %s", key, value ) );
     
-    // check the result with assert
-    assert( reply->type == REDIS_REPLY_STATUS && string(reply->str) == "OK" );
+//     // check the result with assert
+//     assert( reply->type == REDIS_REPLY_STATUS && string(reply->str) == "OK" );
     
-    {
-        std::lock_guard<std::mutex> locker(lockRedis);
-        cout << ++cnt << endl;
-    }
+//     {
+//         std::lock_guard<std::mutex> locker(lockRedis);
+//         cout << ++cnt << endl;
+//     }
     
-    freeReplyObject( reply );
-}
-void commandThread( ThreadPoolCluster::ptr_t cluster_p )
-{
-    redisReply * reply;
-    // use defined custom cluster as template parameter for HiredisCommand here
-    reply = static_cast<redisReply*>( HiredisCommand<ThreadPoolCluster>::Command( cluster_p, "FOO", "SET %d %s", cnt, "BAR1" ) );
+//     freeReplyObject( reply );
+// }
+// void commandThread( ThreadPoolCluster::ptr_t cluster_p )
+// {
+//     redisReply * reply;
+//     // use defined custom cluster as template parameter for HiredisCommand here
+//     reply = static_cast<redisReply*>( HiredisCommand<ThreadPoolCluster>::Command( cluster_p, "FOO", "SET %d %s", cnt, "BAR1" ) );
     
-    // check the result with assert
-    assert( reply->type == REDIS_REPLY_STATUS && string(reply->str) == "OK" );
+//     // check the result with assert
+//     assert( reply->type == REDIS_REPLY_STATUS && string(reply->str) == "OK" );
     
-    {
-        std::lock_guard<std::mutex> locker(lockRedis);
-        cout << ++cnt << endl;
-    }
+//     {
+//         std::lock_guard<std::mutex> locker(lockRedis);
+//         cout << ++cnt << endl;
+//     }
     
-    freeReplyObject( reply );
-}
+//     freeReplyObject( reply );
+// }
 
-void processCommandPool()
-{
-    const int threadsNum = 1000;
+// void processCommandPool()
+// {
+//     const int threadsNum = 1000;
     
-    // use defined ThreadedPool here
-    ThreadPoolCluster::ptr_t cluster_p;
-    // and here as template parameter
+//     // use defined ThreadedPool here
+//     ThreadPoolCluster::ptr_t cluster_p;
+//     // and here as template parameter
 	
-    cluster_p = HiredisCommand<ThreadPoolCluster>::createCluster( get_config->m_redis_host.c_str(),boost::lexical_cast<int>(get_config->m_redis_port) );
+//     cluster_p = HiredisCommand<ThreadPoolCluster>::createCluster( get_config->m_redis_host.c_str(),boost::lexical_cast<int>(get_config->m_redis_port) );
     
-    std::thread thr[get_config->m_threads];
-    for( int i = 0; i < get_config->m_threads; ++i )
-    {
-        thr[i] = std::thread( commandThread, cluster_p );
-    }
+//     std::thread thr[get_config->m_threads];
+//     for( int i = 0; i < get_config->m_threads; ++i )
+//     {
+//         thr[i] = std::thread( commandThread, cluster_p );
+//     }
     
-    for( int i = 0; i < threadsNum; ++i )
-    {
-        thr[i].join();
-    }
+//     for( int i = 0; i < threadsNum; ++i )
+//     {
+//         thr[i].join();
+//     }
     
-    delete cluster_p;
-}
+//     delete cluster_p;
+// }
 
 
 
