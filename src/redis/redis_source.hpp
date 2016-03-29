@@ -11,31 +11,23 @@
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/ini_parser.hpp>
 #include <boost/lexical_cast.hpp>
-//#include <queue>
-//#include <thread>
 #include <condition_variable>
 #include <assert.h>
-
-#include "hirediscommand.h"
-using namespace RedisCluster;
-using namespace redispp;
-using namespace boost::posix_time;
-
-#include "server_http.hpp"
-#include "client_http.hpp"
-
+#include <fstream>
 #include <boost/property_tree/ptree.hpp>
 #include <boost/property_tree/json_parser.hpp>
-
-//Added for the default_resource example
-#include<fstream>
+#include "server_http.hpp"
+#include "client_http.hpp"
+#include "hirediscommand.h"
 #include "redis_errorcode.hpp"
 #include "shared.hpp"
 #include "redis_thread_pool.hpp"
+//Added for the default_resource example
 using namespace std;
-//Added for the json:
 using namespace boost::property_tree;
-
+using namespace RedisCluster;
+using namespace redispp;
+using namespace boost::posix_time;
 typedef SimpleWeb::Server<SimpleWeb::HTTP> HttpServer;
 typedef SimpleWeb::Client<SimpleWeb::HTTP> HttpClient;
 

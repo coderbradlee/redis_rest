@@ -3,7 +3,7 @@
 #include "serverResource.hpp"
 #include <boost/asio/yield.hpp>
 #include <boost/asio/coroutine.hpp>
-#include "redis/redis_source.hpp"
+#include "redis_source.hpp"
 #include <boost/date_time/gregorian/gregorian.hpp>
 #include <boost/any.hpp>
 #include "orderbot.hpp"
