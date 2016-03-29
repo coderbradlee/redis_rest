@@ -41,11 +41,13 @@ class iconfig:public boost::enable_shared_from_this<iconfig>, boost::noncopyable
 			m_redis_password=m_pt.get<std::string>("redis.password");
 			m_redis_port = boost::lexical_cast<unsigned short>(m_pt.get<std::string>("redis.port"));
 			m_webserver_url=m_pt.get<std::string>("webserver.url");
+			m_webserver_port = boost::lexical_cast<unsigned short>(m_pt.get<std::string>("webserver.port"));
 		}
 	public:
 		boost::property_tree::ptree m_pt;
 		string m_ip;
 		unsigned short m_port;
+		unsigned short m_webserver_port;
 		string m_username;
 		string m_password;
 		string m_database;

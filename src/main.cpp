@@ -20,7 +20,7 @@ int main()
 	{
 		{
 			 //HTTP-server at port 8080 using 4 threads
-		    HttpServer server(get_config->m_redis_port,get_config->m_threads);
+		    HttpServer server(get_config->m_webserver_port,get_config->m_threads);
 		    //serverResource(server);
 		    serverRedisResource(server,get_config->m_redis_host,get_config->m_redis_port,get_config->m_redis_password,get_config->m_webserver_url);
 		    thread server_thread([&server](){
