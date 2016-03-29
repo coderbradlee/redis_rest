@@ -27,4 +27,4 @@ AC_TYPE_SIZE_T
 # Checks for library functions.
 AC_CHECK_FUNCS([socket])
 #AC_CONFIG_FILES([Makefile])
-AC_OUTPUT([Makefile src/redis/Makefile])
+AC_OUTPUT#([Makefile src/redis/Makefile])
