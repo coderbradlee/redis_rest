@@ -7,7 +7,7 @@ AC_CONFIG_SRCDIR([src/main.cpp])
 #AC_CONFIG_HEADERS([config.h])
 AM_INIT_AUTOMAKE
 # Checks for programs.
-AM_EXTRA_RECURSIVE_TARGETS([libredispp.a])
+#AM_EXTRA_RECURSIVE_TARGETS([libredispp.a])
 AC_CONFIG_FILES([Makefile src/redis/Makefile])
 AC_PROG_CXX
 AC_PROG_CC
@@ -27,4 +27,4 @@ AC_TYPE_SIZE_T
 # Checks for library functions.
 AC_CHECK_FUNCS([socket])
 #AC_CONFIG_FILES([Makefile])
-AC_OUTPUT
+AC_OUTPUT([Makefile src/redis/Makefile])
