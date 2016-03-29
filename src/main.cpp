@@ -35,7 +35,7 @@ int main()
 		    //curl -X POST http://localhost:8888/apollo -d "{\"operation\": \"LIST_TRADETERM_BY_KEYWORDS\",						\"requestData\": [ {\"keyword\":\"id\",					\"value\":\"APOLLO-ALL\"}],\"requestor\": \"apollo-employee-portal\",\"requestTime\": \"2015-05-25 08:00:00\"}"
 		  { string json="{\"operation\": \"LIST_TRADETERM_BY_KEYWORDS\",						\"requestData\": [ {\"keyword\":\"id\",					\"value\":\"APOLLO-ALL\"}],\"requestor\": \"apollo-employee-portal\",\"requestTime\": \"2015-05-25 08:00:00\"}";
 		   stringstream ss(json);    
-		   auto r2=client.request("POST", "/apollo", ss);
+		   auto r2=client.request("POST", "/cache", ss);
 		   cout << r2->content.rdbuf() << endl;
 		  }
 		}
