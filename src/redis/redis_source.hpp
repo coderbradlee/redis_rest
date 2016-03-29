@@ -343,10 +343,8 @@ int apollo(HttpServer& server,string url)
 {
 	try
 	{
-		cout<<__FILE__<<":"<<__LINE__<<":"<<url<<endl;
     server.resource["^/"+url+"$"]["POST"]=[](HttpServer::Response& response, std::shared_ptr<HttpServer::Request> request) {
         try {
-        	cout<<__FILE__<<":"<<__LINE__<<endl;
             ptree pt;
 			////cout<<__LINE__<<endl;
 		    read_json(request->content, pt);
