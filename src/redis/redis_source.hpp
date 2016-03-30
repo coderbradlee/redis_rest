@@ -250,7 +250,8 @@ string GENERAL_LIST_BY_KEYWORDS(const ptree& pt,string keyTitle,string operation
 		//执行此命令可以将node转向到含有此key的node
 		////cout<<__LINE__<<":"<<reply->type<<endl;
 		////cout<<__LINE__<<":"<<reply->integer<<endl;
-		reply = static_cast<redisReply*>( HiredisCommand<ThreadPoolCluster>::Command( cluster_p,"foo","set foo %s", "bar"));
+		reply = static_cast<redisReply*>( HiredisCommand<ThreadPoolCluster>::Command( cluster_p,"{KV_SESSION}:test","get {KV_SESSION}:%s", "test"));
+		cout<<reply->str<<endl;;
 		freeReplyObject(reply);
 
 		reply = static_cast<redisReply*>( HiredisCommand<ThreadPoolCluster>::Command( cluster_p,tempkey.c_str(),"keys %s", tempkey.c_str()));
