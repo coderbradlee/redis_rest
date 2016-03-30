@@ -21,7 +21,7 @@ using namespace redispp;
 using namespace boost::posix_time;
 
 template<typename redisConnection>
-class ThreadedPool
+class ThreadedPool//container for redis connection
 {
     static const int poolSize_ = 10;
     typedef Cluster<redisConnection, ThreadedPool> RCluster;
