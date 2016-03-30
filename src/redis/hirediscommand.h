@@ -42,7 +42,7 @@ namespace RedisCluster
 {
     using std::string;
     template < typename redis_cluster = redis_cluster<redisContext> >
-    class HiredisCommand : public NonCopyable
+    class HiredisCommand : public boost::noncopyable
     {
         typedef redisContext Connection;
         enum CommandType
