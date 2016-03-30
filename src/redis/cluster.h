@@ -44,21 +44,12 @@ namespace RedisCluster
 {
     using std::string;
     
-    class NonCopyable
-    {
-    protected:
-        NonCopyable() {}
-        ~NonCopyable() {}
-    private:
-        NonCopyable( const NonCopyable& );
-        const NonCopyable& operator=( const NonCopyable& );
-    };
-    
     // cluster class for managing cluster redis connections. Thread safety depends on ConnectionContainer.
     // If ConnectionContainer is thread safe, then Cluster class is thread safe too
     
-    template <typename redisConnection, typename ConnectionContainer = DefaultContainer<redisConnection> >
-    class Cluster : public NonCopyable {
+    template <typename redis_connection, typename ConnectionContainer = DefaultContainer<redis_connection> >
+    class redis_cluster : public boost::noncopyable 
+    {
 
     public:
         // typedefs for redis host, for redis cluster slot indexes
@@ -67,16 +58,16 @@ namespace RedisCluster
         typedef string Host;
         typedef unsigned int SlotIndex;
         typedef std::pair<SlotIndex, SlotIndex> SlotRange;
-        typedef std::pair<SlotRange, redisConnection*> SlotConnection;
-        typedef std::pair<Host, redisConnection*> HostConnection;
+        typedef std::pair<SlotRange, redis_connection*> SlotConnection;
+        typedef std::pair<Host, redis_connection*> HostConnection;
         
         // definition of user connect and disconnect callbacks that can be user defined
-        typedef redisConnection* (*pt2RedisConnectFunc) ( const char*, int, void* );
-        typedef void (*pt2RedisFreeFunc) ( redisConnection* );
+        typedef redis_connection* (*pt2RedisConnectFunc) ( const char*, int, void* );
+        typedef void (*pt2RedisFreeFunc) ( redis_connection* );
         // definition of user error handling function that can be user defined
-        typedef void (*MovedCb) ( void*, Cluster<redisConnection, ConnectionContainer> & );
+        typedef void (*MovedCb) ( void*, redis_cluster<redis_connection, ConnectionContainer> & );
         // definition of raw cluster pointer
-        typedef Cluster* ptr_t;
+        typedef redis_cluster* ptr_t;
         
         struct SlotComparator {
             bool operator()(const SlotRange& a, const SlotRange& b) const {
@@ -85,7 +76,7 @@ namespace RedisCluster
         };
         
         // cluster construction is based on parsing redis reply on "CLUSTER SLOTS" command
-        Cluster( redisReply *reply, pt2RedisConnectFunc connect, pt2RedisFreeFunc disconnect, void *conData ) :
+        redis_cluster( redisReply *reply, pt2RedisConnectFunc connect, pt2RedisFreeFunc disconnect, void *conData ) :
         connections_( new  ConnectionContainer( connect, disconnect, conData ) ),
         userMovedFn_(NULL),
         readytouse_( false ),
@@ -97,7 +88,7 @@ namespace RedisCluster
             init( reply );
         }
         
-        ~Cluster()
+        ~redis_cluster()
         {
             //disconnect();
             delete connections_;

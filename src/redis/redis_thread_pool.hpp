@@ -24,7 +24,7 @@ template<typename redisConnection>
 class ThreadedPool//container for redis connection
 {
     static const int poolSize_ = 10;
-    typedef Cluster<redisConnection, ThreadedPool> RCluster;
+    typedef redis_cluster<redisConnection, ThreadedPool> RCluster;
     // We will save our pool in std::queue here
     typedef std::queue<redisConnection*> ConQueue;
     // Define pair with condition variable, so we can notify threads, when new connection is released from some thread
@@ -199,7 +199,7 @@ private:
     std::mutex conLock_;
 };
 
-typedef Cluster<redisContext, ThreadedPool<redisContext> > ThreadPoolCluster;
+typedef redis_cluster<redisContext, ThreadedPool<redisContext> > ThreadPoolCluster;
 
 volatile int cnt = 0;
 std::mutex lockRedis;
