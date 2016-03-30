@@ -22,6 +22,7 @@
 #include "redis_errorcode.hpp"
 #include "shared.hpp"
 #include "redis_thread_pool.hpp"
+#include "asynchirediscommand.h"
 //Added for the default_resource example
 using namespace std;
 using namespace boost::property_tree;
