@@ -34,14 +34,14 @@
 namespace RedisCluster {
 
     template<typename redisConnection, typename ConnectionContainer>
-    class Cluster;
+    class redis_cluster;
     
     // Container for redis connections. Simple container defined here, it's not thread safe
     // but can be replaced by user defined container as Cluster template class
     template<typename redisConnection>
     class DefaultContainer
     {
-        typedef Cluster<redisConnection, DefaultContainer> RCluster;
+        typedef redis_cluster<redisConnection, DefaultContainer> RCluster;
         typedef typename RCluster::SlotRange SlotRange;
         typedef typename RCluster::Host Host;
         
