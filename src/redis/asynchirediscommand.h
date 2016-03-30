@@ -245,7 +245,7 @@ namespace RedisCluster
         static void askingCallback( Connection* con, void *r, void *data )
         {
             redisReply *reply = static_cast<redisReply*>( r );
-            AsyncHiredisCommand<redis_cluster>* that = static_cast<AsyncHiredisCommand<Cluster>*>( data );
+            AsyncHiredisCommand<redis_cluster>* that = static_cast<AsyncHiredisCommand<redis_cluster>*>( data );
             Action commandState = ASK;
 
             try
